@@ -1,0 +1,182 @@
+.rural{
+  width: 100%;
+  background: none!important;
+  width: calc(100% - 24px);
+  margin: 10px auto;
+  padding: 0!important;
+  .el-card{
+    min-height: calc(100vh - 100px)!important;
+    border-radius: 10px;
+    margin-bottom: 0;
+    ::v-deep{
+      .el-card__header{
+        background-color:#F5F7FA;
+        color: #333;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-direction: row;
+        padding: 12px 20px;
+        span{
+          margin-left: 10px;
+          line-height: 20px;
+          display: inline-block;
+        }
+        i{
+          width: 3px;
+          height:20px;
+          background-color:#0C9ED7;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+        }
+      }
+      .el-card__body{
+        min-height:calc(100vh - 152px);
+        .hflex{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          .radiogroup{
+            .el-radio-button--—{
+              .el-radio-button__inner{
+                font-size: 15px;
+              }
+              &.is-active{
+                .el-radio-button__inner:hover{
+                  color:#fff;
+                }
+              }
+            }
+          }
+        }
+        .el-container{
+          min-height:calc(100vh - 192px);
+          .el-aside{
+            width:190px!important;
+            margin-right:20px;
+            border:1px solid #EFEFF0;
+            border-radius:5px;
+          }
+          .el-main{
+            padding:0;
+          }
+        }
+        .vflex{
+          display: flex;
+          flex-direction: column;
+          .radiogroup{
+            .el-radio-button--—{
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              .el-radio-button__inner{
+                font-size: 16px;
+                border: none;
+                padding: 15px 20px;
+              }
+              &.is-active{
+                .el-radio-button__inner{
+                  border-right:4px solid #009AFF;
+                  background:rgba(5, 169, 241, .05);
+                  color:rgba(0, 154, 255, 1);
+                }
+                .el-radio-button__inner:hover{
+                  color:rgba(0, 154, 255, 1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.el-dialog__body{
+  .titbox{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    height: auto;
+    margin-bottom: 20px;
+    span{
+      margin-left: 10px;
+      font-size:15px;
+      line-height: 20px;
+      display: inline-block;
+    }
+    i{
+      width: 4px;
+      height:16px;
+      background-color:red;
+      display: inline-block;
+      position: relative;
+      top: 0;
+    }
+  }
+  .el-form{
+    .el-form-item{
+      .el-input, .el-select,.el-textarea ,.el-cascader{
+        width: 100%;
+      }
+      ::v-deep{
+        .el-input--small .el-input__inner{
+          height: 38px;
+          line-height: 38px;
+        }
+        .el-form-item__content{
+          width:calc(100% - 150px);
+          .el-textarea__inner:focus{
+            border-color:red;
+          }
+        }
+        .editor {
+          line-height: normal !important;
+          .ql-container{
+            height: 320px;
+          }
+        }
+        .el-input--small .el-input__inner{
+          height: 38px;
+          line-height: 38px;
+        }
+        .imagebox{
+          width: 150px;
+          height: 150px;
+          background-color: #f3f3f3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border-radius: 5px;
+          i{
+            font-size: 30px;
+            color: #999;
+          }
+          u{
+            text-decoration: none;
+            font-size: 15px;
+            color: #999;
+          }
+        }
+        .el-image{
+          width: 140px;
+          height: 140px;
+          float: left;
+          border-radius: 5px;
+          box-shadow: 0 1px 3px 1px rgba(0,0,0,.1);
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+.el-dialog__footer{
+  .el-button{
+    padding:11px 25px;
+    font-size: 15px;
+  }
+}

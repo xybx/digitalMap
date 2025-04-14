@@ -1,0 +1,102 @@
+.tnhome{
+  background: none!important;
+  width: calc(100% - 24px);
+  margin: 10px auto;
+  padding: 0!important;
+  .el-card{
+    min-height: calc(100vh - 100px)!important;
+    border-radius: 10px;
+    margin-bottom: 0;
+    ::v-deep{
+      .el-card__body{
+        min-height:calc(100vh - 102px);
+        padding:15px 20px;
+        .mlist{
+          margin:0;
+          padding:0;
+          display: flex;
+          flex-direction: column;
+          .mbody{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-bottom:30px;
+            &:last-child{
+              margin-bottom:0;
+            }
+            dt{
+              display: flex;
+              flex-direction: column;
+              color: #333;
+              font-size:18px;
+              padding-left:15px;
+              position:relative;
+              margin-bottom:20px;
+              &::before{
+                content:'';
+                position:absolute;
+                width:4px;
+                height:18px;
+                background:#0C9ED7;
+                top:1px;
+                left:0px;
+              }
+            }
+            .mbox{
+              display: flex;
+              flex-direction: row;
+              align-items:center;
+              flex-wrap: wrap;
+            }
+            dd{
+              display: flex;
+              flex-direction: row;
+              align-items:center;
+              justify-content: space-between;
+              margin:0;
+              padding:15px 20px;
+              background: #F5F7FA;
+              border-radius:5px;
+              width:calc(20% - 40px);
+              min-height:135px;
+              margin-right: 20px;
+              cursor: pointer;
+              &:last-child {
+                margin-right:0;
+              }
+              .iconbg{
+                width:64px;
+                height:64px;
+                border-radius: 10px;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-left:8%;
+                i{
+                  color:#fff;
+                  font-size:42px;
+                }
+              }
+              .tfont{
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-right: 10%;
+                label{
+                  font-size:18px;
+                  color:#333;
+                }
+                span{
+                  font-size:32px;
+                  font-weight: bold;
+                  margin-top:15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

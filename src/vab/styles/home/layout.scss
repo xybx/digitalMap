@@ -1,0 +1,421 @@
+.home{
+  width:100%;
+  height:100%;
+  &.inter{
+    background:url(~@/assets/home/homebg.png) top center no-repeat;
+    background-size: 100% 100%;
+  }
+  &.local{
+    background:url(~@/assets/land/landbg.png) top center no-repeat;
+    background-size: 100% 100%;
+  }
+  &.frash{
+    background:url(~@/assets/pure/purebg.png) top center no-repeat;
+    background-size: 100% 100%;
+  }
+  &.level{
+    background:url(~@/assets/level/levbg.png) top center no-repeat;
+    background-size: 100% 100%;
+  }
+  .bgbox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    i.lightbox{
+      position: absolute;
+      z-index: 3;
+      display: block;
+      width: 100%;
+      height: 763px;
+      background:url('~@/assets/home/icon_light.png') no-repeat;
+      background-size: 100% 100%;
+    }
+    i.bgbox{
+      position: absolute;
+      top:calc(50% - 235px);
+      z-index: 10;
+      display: block;
+      width: 100%;
+      height: 700px;
+      background: url('~@/assets/home/icon_area.png') no-repeat;
+      background-size:100% 100%;
+    }
+  }
+  .el-container{
+    position:absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    .el-header{
+      height: 100px!important;
+      padding:0;
+      ::v-deep{
+        .vab-header{
+          background:none!important;
+          height: 100%;
+          .vab-main {
+            width: 1400px !important;
+            margin: auto;
+            .logo-container-horizontal .title{
+              font-size: 30px;
+              text-shadow: 3px 3px 3px rgba(0,0,0,.3);
+            }
+          }
+        }
+      }
+    }
+    ::v-deep{
+      .el-main{
+        padding: 0;
+        .mainbox{
+          height:100%;
+          margin: 0 auto;
+          .wlist{
+            width: 1150px;
+            height:96px;
+            margin: 50px auto 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: rgba(255,255,255,.12);
+            border-radius:60px;
+            li{
+              width: 25%;
+              height:100%;
+              font-size:24px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              position: relative;
+              &:last-child i{
+                display: none;
+              }
+              span{
+                height: 100%;
+                width: 80%;
+                color: #fff;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-shadow: 0 3px 2px rgba(0,0,0,.4);
+              }
+              i{
+                display: inline-block;
+                width: auto;
+                height: 60px;
+                border-left:2px dashed rgba(255 ,255, 255, .5);
+                position: absolute;
+                right: 0;
+              }
+              &.active{
+                background:url('~@/assets/pure/iconarrow.png') bottom center no-repeat;
+                background-size:7.5%;
+                span{
+                  color:#28E36A;
+                }
+              }
+            }
+          }
+        }
+        .levmain{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width:70%;
+          height:100%;
+          margin:0 auto;
+          .levtit{
+            width:46%;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            font-size:36px;
+            color: #fff;
+            letter-spacing: 10px;
+            margin:12% 0 10px;
+          }
+          .levnew{
+            width:25%;
+            height:30px;
+            text-align: center;
+            font-size:18px;
+            cursor: pointer;
+            label{
+              float: left;
+              color:#fff;
+              letter-spacing:5px;
+            }
+            .el-carousel{
+              span{
+                color:#fff;
+              }
+            }
+          }
+          .levlist{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            width:100%;
+            height:40%;
+            margin-top:3%;
+            //perspective:1000px;/*perspective属性定义3D元素距视图的距离,以像素计。该属性允许您改变 3D 元素查看 3D 元素的视图。*/
+            //-webkit-perspective:1000px;
+            //-moz-perspective:1000px;
+            //-ms-perspective:1000px;
+            //-o-perspective:1000px;
+            li{
+              width:25%;
+              height:100%;
+              cursor: pointer;
+              transition:1s all ease-in-out;
+              -webkit-transition:1s all ease-in-out;
+              -moz-transition: 1s all ease-in-out;
+              -ms-transition: 1s all ease-in-out;
+              -o-transition: 1s all ease-in-out;
+              &:hover{
+              }
+              .iconbox{
+                height:100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              }
+              i{
+                display: inline-block;
+                width:26%;
+                height:26%;
+                background-size:100% 100% !important;
+              }
+              span{
+                font-size: 26px;
+                color: #fff;
+                font-weight: bold;
+                margin-top: 20px;
+              }
+              &:first-child{
+                background: url('~@/assets/level/mbg1.png') top center no-repeat;
+                background-size:100% 100%;
+                i{
+                  background: url('~@/assets/level/icon1.png') top center no-repeat;
+                }
+              }
+              &:nth-child(2){
+                background: url('~@/assets/level/mbg2.png') center 10px no-repeat;
+                background-size:100% 92%;
+                i{
+                  background: url('~@/assets/level/icon2.png') top center no-repeat;
+                }
+              }
+              &:nth-child(3){
+                background: url('~@/assets/level/mbg3.png') center 10px no-repeat;
+                background-size:100% 92%;
+                i{
+                  background: url('~@/assets/level/icon3.png') top center no-repeat;
+                }
+              }
+              &:nth-child(4){
+                background: url('~@/assets/level/mbg4.png') top center no-repeat;
+                background-size:100% 100%;
+                i{
+                  background: url('~@/assets/level/icon4.png') top center no-repeat;
+                }
+              }
+              .navmenu{
+                margin:0;
+                padding:10px 3%;
+                width:94%;
+                height: calc(100% - 20px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                animation-delay: .3s;
+                -webkit-animation-delay: .3s;
+                -o-animation-delay: .3s;
+                -moz-animation-delay: .3s;
+                dd{
+                  padding:12px 0;
+                  width:50%;
+                  border-radius: 25px;
+                  background: rgba(255,255,255,.2);
+                  border: 1px solid rgba(255,255,255,.3);
+                  color: #fff;
+                  margin-bottom:15px;
+                  font-size: 16px;
+                  text-align: center;
+                  &:last-child{
+                    margin-bottom: 0;
+                  }
+                  &:hover{
+                    background: rgba(0,0,0,.2);
+                    border: 1px solid rgba(36,194,186,.4);
+                    color: #24c2ba;
+                  }
+                }
+              }
+            }
+          }
+          .timelist{
+            margin:0;
+            padding:0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:space-between;
+            width:48%;
+            li{
+              width:48%;
+              display: flex;
+              flex-direction: column;
+              h3{
+                font-size:18px;
+                color:#fff;
+                margin:0 0 10px;
+                font-weight: normal;
+              }
+              .tfont{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                span{
+                  padding:4px 12px;
+                  background: rgba(114, 144, 213, .3);
+                  border:3px solid rgba(119, 186, 245, 1);
+                  font-size:30px;
+                  color:rgba(137, 234, 255, 1);
+                  margin-right:10px;
+                  &.timebox{
+                    font-size:23px;
+                    padding:8px 12px;
+                  }
+                  &:last-child{
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .el-footer{
+        padding: 0;
+        &.intel{
+          height: 160px!important;
+          .navlist{
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 70px;
+            overflow: hidden;
+            li{
+              width: 22.6%;
+              height: 100%;
+              float: left;
+              margin-right:30px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: flex-end;
+              cursor: pointer;
+              &:last-child{
+                margin-right: 0;
+                i{
+                  background: url('~@/assets/home/icon_ngreen.png') center no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+              span{
+                font-size: 22px;
+                color: #fff;
+                position: relative;
+                top:7px;
+                text-shadow: 0 8px 1px rgba(0,0,0,.35);
+              }
+              i{
+                width: 210px;
+                height: 107px;
+                display: block;
+                background:url('~@/assets/home/icon_nblue.png') center no-repeat;
+                background-size: 100% 100%;
+              }
+              &.active{
+                i{
+                  height: 152px;
+                  background: url('~@/assets/home/icon_nyellow.png') center no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+            }
+          }
+        }
+        &.land{
+          height: 110px!important;
+          .navlist{
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 39, 54, .6);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            li{
+              width: 25%;
+              height:100%;
+              color: #fff;
+              font-size:24px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              position: relative;
+              &:last-child i{
+                display: none;
+              }
+              span{
+                height: 100%;
+                width: 80%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              }
+              i{
+                display: inline-block;
+                background: rgba(255 ,255, 255, .22);
+                width: 2px;
+                height: 60px;
+                position: absolute;
+                right: 0;
+              }
+              &.active{
+                background: linear-gradient(left,rgba(28, 99, 185, .6),rgba(35, 243, 253, .6));
+                background: -webkit-linear-gradient(left,rgba(28, 99, 185, .6),rgba(35, 243, 253, .6));
+                background: -moz-linear-gradient(left,rgba(28, 99, 185, .6),rgba(35, 243, 253, .6));
+                background: -o-linear-gradient(left,rgba(28, 99, 185, .6),rgba(35, 243, 253, .6));
+                background: -ms-linear-gradient(left,rgba(28, 99, 185, .6),rgba(35, 243, 253, .6));
+                span{
+                  background: url('~@/assets/land/light.png') top center no-repeat;
+                  background-size:100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

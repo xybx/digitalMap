@@ -1,0 +1,101 @@
+.kindern {
+  width: 100%;
+  background: none !important;
+  width: calc(100% - 24px);
+  margin: 10px auto;
+  padding: 0 !important;
+  .el-card {
+    min-height: calc(100vh - 100px) !important;
+    border-radius: 10px;
+    margin-bottom: 0;
+    ::v-deep {
+      .el-card__header {
+        background-color: #f5f7fa;
+        color: #333;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-direction: row;
+        padding: 12px 20px;
+        span {
+          margin-left: 10px;
+          line-height: 20px;
+          display: inline-block;
+        }
+        i {
+          width: 3px;
+          height: 20px;
+          background-color: #0c9ed7;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+        }
+      }
+      .el-card__body {
+        min-height: calc(100vh - 152px);
+        padding: 15px 18px;
+        .el-container {
+          min-height: calc(100vh - 192px);
+          .el-aside {
+            width: 11vw !important;
+            margin-right: 20px;
+            border: 1px solid #efeff0;
+            border-radius: 5px;
+            .vflex {
+              display: flex;
+              flex-direction: column;
+              .radiogroup {
+                .el-radio-button--— {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: baseline;
+                  width: 100%;
+                  .el-radio-button__inner {
+                    font-size: 16px;
+                    border: none;
+                    padding: 15px 20px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: baseline;
+                    i {
+                      width: 12%;
+                      margin-right: 14px;
+                      font-size: 24px;
+                      &.icon-shenfenma {
+                        font-size: 26px;
+                      }
+                      &.icon-yonghujiluchaxun {
+                        font-size: 19px;
+                      }
+                      &.icon-goodsppecategory {
+                        font-size: 20px;
+                      }
+                      &.icon-pashan {
+                        font-size: 19px;
+                      }
+                    }
+                  }
+                  &.is-active {
+                    .el-radio-button__inner {
+                      border-right: 4px solid #009aff;
+                      background: rgba(5, 169, 241, 0.05);
+                      color: rgba(0, 154, 255, 1);
+                    }
+                    .el-radio-button__inner:hover {
+                      color: rgba(0, 154, 255, 1);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .el-main {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

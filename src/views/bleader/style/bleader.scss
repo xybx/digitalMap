@@ -1,0 +1,460 @@
+.bindex {
+  width: 100vw;
+  height: 100vh;
+  background: url('~@/assets/btleader/bg.png') center top no-repeat;
+  background-size: 100% 100%;
+
+  .el-container {
+    min-height: 100%;
+
+    .el-header {
+      height: 77px !important;
+      background: url('~@/assets/btleader/headerbg.png') top center no-repeat;
+      background-size: 100% 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        font-size: 32px;
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 5px;
+      }
+      .el-button.menubtn{
+        position:absolute;
+        right: 3%;
+        background-color: #0dc9c6;
+        border-radius:5px;
+        border-color:#0dc9c6;
+      }
+    }
+
+    .el-main {
+      display: flex;
+      padding: 0 8px 8px;
+
+      .el-row {
+        display: flex;
+        flex: 1;
+        min-height: 100%;
+
+        .el-col {
+          min-height: 100%;
+
+          .el-card {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            box-shadow: none;
+            border: none;
+            background: none;
+            border-radius: 0;
+
+            ::v-deep {
+              .el-card__header {
+                background: url('~@/assets/btleader/line.png') bottom left no-repeat;
+                background-size: 95% 8%;
+                border: none;
+                padding: 13px 0;
+
+                .clearfix {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+
+                  i {
+                    display: block;
+                    width: 11px;
+                    height: 23px;
+                    background: url('~@/assets/btleader/iconleft.png') top center no-repeat;
+                    background-size: 100% 100%;
+                  }
+
+                  span {
+                    font-size: 18px;
+                    color: #fff;
+                    font-weight: bold;
+                    margin-left: 10px;
+                  }
+                }
+              }
+
+              .el-card__body {
+                display: flex;
+                flex: 1;
+                margin-top: 8px;
+                padding: 0;
+                border: 1px solid rgba(44, 84, 156, 1);
+                background: linear-gradient(top, rgba(28, 157, 254, 0), rgba(0, 133, 233, 0.3));
+                background: -webkit-linear-gradient(top, rgba(28, 157, 254, 0), rgba(0, 133, 233, 0.28));
+                background: -ms-linear-gradient(top, rgba(28, 157, 254, 0), rgba(0, 133, 233, 0.28));
+              }
+            }
+          }
+
+          &.el-col-7 {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .el-card {
+              height: 49.5%;
+
+              ::v-deep {
+                .el-card__body {
+                  .plist {
+                    width: 100%;
+                    margin: 0;
+                    padding: 20px 15px;
+
+                    li {
+                      width: 48%;
+                      height: 33%;
+                      float: left;
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                      background: url('~@/assets/btleader/globalbg.png') top center no-repeat;
+                      background-size: 100% 100%;
+                      padding-left: 25px;
+                      position: relative;
+
+                      &:nth-child(2),
+                      &:nth-child(3),
+                      &:nth-child(5) {
+                        float: right;
+                      }
+
+                      u {
+                        text-decoration: none;
+                      }
+
+                      span {
+                        font-size: 15px;
+                        color: rgba(227, 238, 253, 1);
+                        cursor: pointer;
+
+                        u {
+                          margin: 0 10px;
+                          font-size: 22px;
+                          font-weight: bold;
+                        }
+                      }
+
+                      &:first-child {
+                        background: url('~@/assets/btleader/prone.png') top center no-repeat;
+                        background-size: 85% 100%;
+                        height: 65%;
+                        align-items: center;
+                        padding-left: 0;
+
+                        u {
+                          font-size: 36px;
+                          font-weight: bold;
+                          color: rgba(33, 248, 255, 1);
+                        }
+
+                        span {
+                          color: rgba(46, 228, 255, 1);
+                          position: absolute;
+                          bottom: 30px;
+                        }
+                      }
+
+                      &:nth-child(2) span u {
+                        color: rgba(241, 153, 57, 1);
+                      }
+
+                      &:nth-child(3) span u,
+                      &:nth-child(5) span u {
+                        color: rgba(97, 198, 252, 1);
+                      }
+
+                      &:nth-child(4) span u {
+                        color: rgba(121, 252, 252, 1);
+                      }
+                    }
+
+                    &.sigle {
+                      li:first-child {
+                        background: url('~@/assets/btleader/protow.png') top center no-repeat;
+                        background-size: 85% 100%;
+                        height:65%;
+                        align-items: center;
+                        padding-left: 0;
+
+                        u {
+                          font-size: 36px;
+                          font-weight: bold;
+                          color: rgba(33, 248, 255, 1);
+                        }
+
+                        span {
+                          color: rgba(46, 228, 255, 1);
+                          position: inherit;
+                          bottom: inherit;
+                        }
+                      }
+                    }
+                  }
+                  .el-table {
+                    background: none;
+                    &::before {
+                      height: 0;
+                      background: none;
+                    }
+                    tr {
+                      background: none;
+                      th {
+                        border: none;
+                        background: rgba(49, 86, 147, .3);
+                        padding: 4px 0;
+                        .cell {
+                          color: rgba(61, 143, 255, 1);
+                        }
+                      }
+                      td {
+                        border: none;
+                        background: none;
+                        padding: 5px 0;
+                        .cell {
+                          color: rgba(61, 143, 255, 1);
+                        }
+                        &:nth-child(1),
+                        &:nth-child(2) {
+                          .cell {
+                            color: #fff;
+                          }
+                        }
+                        &:nth-child(1) span {
+                          &::before {
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            left: calc(50% - 12px);
+                            width: 32px;
+                            height: 24px;
+                            background: url('~@/assets/btleader/iconnum.png') top center no-repeat;
+                            background-size: 100% 100%;
+                            z-index: -1;
+                          }
+                        }
+                      }
+
+                      &.el-table__row:nth-child(1) {
+                        td .cell {
+                          color: rgba(255, 50, 50, 1);
+                        }
+
+                        td:nth-child(1),
+                        td:nth-child(2) {
+                          .cell {
+                            color: #fff;
+                          }
+                        }
+
+                        td:nth-child(1) span {
+                          &::before {
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            left: calc(50% - 12px);
+                            width: 32px;
+                            height: 24px;
+                            background: url('~@/assets/btleader/iconone.png') top center no-repeat;
+                            background-size: 100% 100%;
+                            z-index: -1;
+                          }
+                        }
+                      }
+
+                      &.el-table__row:nth-child(2) {
+                        td .cell {
+                          color: rgba(255, 152, 0, 1);
+                        }
+
+                        td:nth-child(1),
+                        td:nth-child(2) {
+                          .cell {
+                            color: #fff;
+                          }
+                        }
+
+                        td:nth-child(1) span {
+                          &::before {
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            left: calc(50% - 12px);
+                            width: 32px;
+                            height: 24px;
+                            background: url('~@/assets/btleader/icontwo.png') top center no-repeat;
+                            background-size: 100% 100%;
+                            z-index: -1;
+                          }
+                        }
+                      }
+
+                      &.el-table__row:nth-child(3) {
+                        td .cell {
+                          color: rgba(255, 210, 0, 1);
+                        }
+
+                        td:nth-child(1),
+                        td:nth-child(2) {
+                          .cell {
+                            color: #fff;
+                          }
+                        }
+
+                        td:nth-child(1) span {
+                          color: #333;
+
+                          &::before {
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            left: calc(50% - 12px);
+                            width: 32px;
+                            height: 24px;
+                            background: url('~@/assets/btleader/iconthree.png') top center no-repeat;
+                            background-size: 100% 100%;
+                            z-index: -1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.el-col-10 {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            .el-card {
+              height: 45%;
+              .el-card__body{
+                #barbox{
+                  width:100%;
+                  height:340px;
+                }
+              }
+            }
+            .tlist {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              padding: 0 10px;
+              margin: 58px 0 20px;
+              height: 130px;
+
+              li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 49%;
+                height: 100%;
+                padding: 0 20px;
+
+                &:first-child {
+                  background: url('~@/assets/btleader/combg.png') top center no-repeat;
+                  background-size: 100% 100%;
+                }
+
+                &:last-child {
+                  background: url('~@/assets/btleader/perbg.png') top center no-repeat;
+                  background-size: 100% 100%;
+                }
+
+                i {
+                  display: block;
+                  width: 70px;
+                  height: 79px;
+                  background-size: 100% 100% !important;
+                }
+
+                &:first-child {
+                  i {
+                    background: url('~@/assets/btleader/iconcomnum.png') top center no-repeat;
+                  }
+                }
+
+                &:last-child {
+                  i {
+                    background: url('~@/assets/btleader/iconpernum.png') top center no-repeat;
+                  }
+                }
+
+                .tfont {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  margin-left: 20px;
+
+                  span {
+                    font-size: 18px;
+                    color: #fff;
+                    background: url('~@/assets/btleader/iconarr.png') left center no-repeat;
+                    padding-left: 20px;
+                  }
+
+                  u {
+                    text-decoration: none;
+                    margin-top: 10px;
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: rgba(121, 252, 252, 1);
+                  }
+                }
+              }
+            }
+
+            .mapbtn {
+              display: flex;
+              flex: 1;
+              flex-direction: column;
+              align-items: center;
+              justify-content: end;
+              margin-top: 10px;
+              position: relative;
+
+              &::before {
+                content: '';
+                display: block;
+                width: 60%;
+                height: 100%;
+                background: url('~@/assets/btleader/iconmap.png') top center no-repeat;
+                background-size: 100% 100%;
+                position: absolute;
+                z-index: -1;
+              }
+
+              .el-button {
+                background: linear-gradient(top, rgba(0, 133, 233, .4), rgba(28, 157, 254, .4));
+                background: -webkit-linear-gradient(top, rgba(0, 133, 233, .4), rgba(28, 157, 254, .4));
+                border: 1px solid rgba(97, 198, 252, 1);
+                color: rgba(121, 252, 252, 1);
+                font-size: 18px;
+                padding: 12px 20px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                letter-spacing: 3px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

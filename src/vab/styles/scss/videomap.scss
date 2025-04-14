@@ -1,0 +1,105 @@
+.onemap-container{
+  display: flex;
+  flex-direction: column;
+  height:100%;
+  ::v-deep{
+    .navmenu{
+      position:absolute;
+      display: flex;
+      flex:1;
+      top:5px;
+      left: 5px;
+      bottom: 5px;
+      z-index: 99;
+      width: 304px;
+      .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content{
+        background:linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+        background:-webkit-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+        background: -moz-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+        background: -o-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+        background: -ms-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+      }
+      .el-tree{
+        width:calc(100% - 44px);
+        padding: 12px 12px 0;
+        border: 3px solid #2F9DF2;
+        border-radius:5px;
+        background:linear-gradient(left,rgba(2, 30, 65, .6),rgba(16, 97, 159, .6));
+        background:-webkit-linear-gradient(left,rgba(2, 30, 65, .6),rgba(16, 97, 159, .6));
+        background: -moz-linear-gradient(left,rgba(2, 30, 65, .6),rgba(16, 97, 159, .6));
+        background: -o-linear-gradient(left,rgba(2, 30, 65, .6),rgba(16, 97, 159, .6));
+        background: -ms-linear-gradient(left,rgba(2, 30, 65, .6),rgba(16, 97, 159, .6));
+        transition: all .3s ease-in-out;
+        -webkit-transition: all .3s ease-in-out;
+        -o-transition:all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        .el-tree-node{
+          &:focus{
+            .el-tree-node__content{
+              background:linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background:-webkit-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background: -moz-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background: -o-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background: -ms-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+            }
+          }
+          .el-tree-node__content{
+            &:hover{
+              background:linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background:-webkit-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background: -moz-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background: -o-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+              background: -ms-linear-gradient(right,rgba(2, 171, 255, 0.5),rgba(0, 241, 255, .4));
+            }
+            span{
+              color: #fff;
+              &.el-tree-node__expand-icon{
+                color:#00DBF3;
+              }
+            }
+          }
+        }
+      }
+      .collaspebox{
+        display: inline-block;
+        width:44px;
+        height: 330px;
+        background:url('~@/assets/collhiden.png') top center no-repeat;
+        background-size:100% 100%!important;
+        cursor: pointer;
+        position: relative;
+        top:calc(50% - 165px);
+        left: -1px;
+        &.hidenbox{
+          background:url('~@/assets/collshow.png') top center no-repeat;
+        }
+      }
+    }
+    .map{
+      .esri-ui-inner-container{
+        .esri-popup__main-container{
+          background: rgba(6, 14, 44, .8);
+          border:1px solid #1A7683;
+          color: #fff;
+          .esri-popup__header{
+            .esri-popup__header-container{
+              .esri-popup__header-title{
+                background-color: rgba(68, 231, 253, .1);
+              }
+            }
+            .esri-popup__header-buttons{
+              .esri-popup__button{
+                color:#44DEFD;
+              }
+            }
+          }
+          .esri-popup__content{
+            video{
+              border:1px solid #1A7683;
+            }
+          }
+        }
+      }
+    }
+  }
+}

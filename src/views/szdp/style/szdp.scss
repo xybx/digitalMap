@@ -1,0 +1,96 @@
+.digital-container{
+  width: 100vw;
+  height: 100vh;
+  background: url('~@/assets/szdp/bg.jpg') center no-repeat;
+  background-size: 100% 100%;
+  .el-container {
+    min-height: 100%;
+    .el-header{
+      height: 70px!important;
+      padding: 0 15px;
+      .el-row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width:100%;
+        min-height: 100%;
+        .el-col{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          min-height: 100%;
+        }
+      }
+      .headerbox{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .headerbox i{
+        display: inline-block;
+        width: 27rem;
+        height: 2.6rem;
+        background: url('~@/assets/szdp/logo.png') center no-repeat;
+      }
+    }
+    .el-main{
+      display: flex;
+      padding:15px 30px 30px;
+      .el-row{
+        display: flex;
+        flex: 1;
+        min-height: 100%;
+        .el-col{
+          min-height: 100%;
+
+          .itembox{
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            height:33%;
+            background: url('~@/assets/szdp/boxbg.png') center no-repeat;
+            background-size: 103% 101%;
+            margin-bottom:0.5%;
+            &:last-child{
+              margin-bottom: 0;
+            }
+          }
+          .mapitem{
+            background: url('~@/assets/szdp/boxbg6.png') center no-repeat;
+            background-size: 102% 102%;
+            display: flex;
+            flex-direction: column;
+            height:66%;
+            position: relative;
+            z-index: 99;
+          }
+          .suritem{
+            background: url('~@/assets/szdp/boxbg2.png') center no-repeat;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            height:33%;
+          }
+          .soilitem{
+            background: url('~@/assets/szdp/boxbg3.png') center no-repeat;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            height:46%;
+          }
+          .voltitem{
+            display: flex;
+            flex-direction: column;
+            background: url('~@/assets/szdp/boxbg4.png') center no-repeat;
+            background-size: 100% 100%;
+            height:20%;
+          }
+        }
+      }
+    }
+  }
+}

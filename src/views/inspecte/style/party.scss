@@ -1,0 +1,197 @@
+.memberage,.meetage,.runage,.organage{
+  width: 100%;
+  background: none!important;
+  padding: 0!important;
+  .el-card{
+    min-height: calc(100vh - 100px)!important;
+    margin-bottom: 0;
+    ::v-deep{
+      .el-card__header{
+        background-color:#F5F7FA;
+        color: #333;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        flex-direction: row;
+        padding: 12px 20px;
+        span{
+          margin-left: 10px;
+          line-height: 20px;
+          display: inline-block;
+        }
+        i{
+          width: 3px;
+          height:20px;
+          background-color:#E93326;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+        }
+        .el-button{
+          margin-left: 20px;
+          span{
+            margin-left: 0;
+            line-height: inherit;
+          }
+        }
+      }
+      .el-card__body{
+        .dlist{
+          display:flex;
+          flex-direction: row;
+          align-items: center;
+          margin: 0;
+          padding:0;
+          li{
+            width:13%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: rgba(235, 37, 32, .06);
+            border-radius: 5px;
+            padding:25px 15px;
+            margin-right:20px;
+            margin-bottom:20px;
+            &:last-child{
+              margin-right:0;
+              i{
+                font-size:32px;
+              }
+            }
+            i{
+              font-size:30px;
+              color:rgba(233, 51, 38, 1);
+            }
+            .dfont{
+              display:flex;
+              flex-direction:column;
+              margin-left:20px;
+              u{
+                text-decoration: none;
+                font-size:20px;
+                font-weight:bold;
+                color:rgba(233, 51, 38, 1);
+                margin-top:10px;
+              }
+            }
+          }
+        }
+        .radiogroup{
+          margin-bottom: 20px;
+          .el-radio-button{
+            .el-radio-button__inner:hover{
+              color:red;
+            }
+            &.is-active{
+              .el-radio-button__inner:hover{
+                color:#fff;
+              }
+            }
+          }
+          .el-radio-button__orig-radio:checked + .el-radio-button__inner{
+            background-color:red;
+            border-color: red;
+            box-shadow: -1px 0 0 0 red;
+          }
+        }
+        .el-table{
+          ::v-deep{
+            .el-table__row--level-1{
+              .el-table_1_column_2{
+                .cell span.noch{
+                  padding-left:10px;
+                }
+              }
+            }
+            .el-table__row--level-2{
+              .el-table_1_column_2{
+                .cell span.noch{
+                  padding-left:25px;
+                }
+              }
+            }
+            .el-table__row--level-3{
+              .el-table_1_column_2{
+                .cell span.noch{
+                  padding-left:40px;
+                }
+              }
+            }
+            [class*=el-table__row--level] .el-table__expand-icon{
+              float:left;
+              i{
+                font-size:16px;
+              }
+            }
+            [class*=el-table__row--level] .el-table__indent{
+              display: none;
+            }
+            .el-table__row--level-1 .el-table__expand-icon{
+              margin-left:15px;
+            }
+            .el-table__row--level-2 .el-table__expand-icon{
+              margin-left:30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.el-dialog__body{
+  .el-form{
+    .el-form-item{
+      .el-input, .el-select,.el-textarea ,.el-cascader{
+        width: 100%;
+      }
+      &.overmouth{
+        .el-input,.el-select{
+          width:48%;
+        }
+        .el-select{
+          margin-left:20px;
+        }
+      }
+      ::v-deep{
+        .el-input--small .el-input__inner{
+          height: 38px;
+          line-height: 38px;
+        }
+        .imagebox{
+          width: 150px;
+          height: 150px;
+          background-color: #f3f3f3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border-radius: 5px;
+          i{
+            font-size: 30px;
+            color: #999;
+          }
+          u{
+            text-decoration: none;
+            font-size: 15px;
+            color: #999;
+          }
+        }
+        .el-image{
+          width: 140px;
+          height: 140px;
+          float: left;
+          border-radius: 5px;
+          box-shadow: 0 1px 3px 1px rgba(0,0,0,.1);
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+.el-dialog__footer{
+  .el-button{
+    padding:11px 25px;
+    font-size: 15px;
+  }
+}

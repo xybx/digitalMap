@@ -1,0 +1,236 @@
+.login-container {
+  height: 100vh;
+  background-size: 100% 100%!important;
+}
+.top{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .top_title{
+    line-height: 100px;
+    //width: 4%;
+    height: 55px;
+    background-size: 100% 100%!important;
+    margin-left: 8%;
+  }
+  .timebox{
+    margin-right: 12%;
+    span{
+      display: inline-block;
+      line-height: 100px;
+      color: #fff;
+      font-size:24px;
+    }
+  }
+}
+.login_bg{
+  //background: url('~@/assets/login_bg.jpg') center center no-repeat;
+  //background-size: cover;
+  height: 100%;
+  .el-col.flbox{height:calc(100% - 100px)}
+  .fontbox{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    i{
+      width: 600px;
+      height: 50px;
+      display: inline-block;
+      &.iconlogo{
+        width: 1150px;
+        height:520px;
+        background-size: 100% 100%!important;
+      }
+      &.iconfup{
+        background: url('~@/assets/f1.png') center no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 3%;
+      }
+      &.iconfdown{
+        background: url('~@/assets/f2.png') center no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+  .login-form {
+    position: relative;
+    max-width: 100%;
+    padding: 4.5vh;
+    margin:0 8vw;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 1px 2px 5px 3px rgba(0,0,0,.3);
+    border-radius:10px;
+    top: 8vw;
+    .title-tips {
+      margin-top:20px;
+      font-size: 28px;
+      font-weight: 400;
+      color: #1890ff;
+    }
+
+    .login-btn {
+      display: inherit;
+      width: 100%;
+      height: 50px;
+      margin-bottom:20px;
+      font-size:18px;
+      letter-spacing: 5px;
+      border: 0;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      .forget-passwordword {
+        width: 100%;
+        margin-top: 40px;
+        text-align: left;
+
+        .forget-password {
+          width: 129px;
+          height: 19px;
+          font-size: 20px;
+          font-weight: 400;
+          color: rgba(92, 102, 240, 1);
+        }
+      }
+    }
+
+    .tips {
+      margin-bottom: 10px;
+      font-size: $base-font-size-default;
+      color: $base-color-white;
+
+      span {
+        &:first-of-type {
+          margin-right: 16px;
+        }
+      }
+    }
+
+    .title-container {
+      position: relative;
+
+      .title {
+        margin: 0 auto 40px auto;
+        font-size: 34px;
+        font-weight: bold;
+        color: $base-color-blue;
+        text-align: center;
+      }
+    }
+
+    i {
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      z-index: $base-z-index;
+      font-size: 16px;
+      color: #d7dee3;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .show-password {
+      position: absolute;
+      right: 25px;
+      left: -35px;
+      font-size: 16px;
+      color: #d7dee3;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    ::v-deep {
+      .el-form-item {
+        padding-right: 0;
+        margin: 20px 0;
+        color: #454545;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius:5px;
+
+        &__content {
+          min-height: $base-input-height;
+          line-height: $base-input-height;
+        }
+
+        &__error {
+          position: absolute;
+          top: 100%;
+          left: 18px;
+          font-size: $base-font-size-small;
+          line-height: 18px;
+          color: $base-color-red;
+        }
+        .el-popover__reference-wrapper{
+          .el-button{
+            width: 100%;
+            padding:16px 20px;
+            font-size: 15px;
+            i{
+              font-size: 18px;
+              margin-right: 5px;
+              position: relative;
+              top: 1px;
+            }
+          }
+        }
+        .pbtn{
+          width: 100%;
+          padding:16px 20px;
+          font-size: 15px;
+          i{
+            font-size: 18px;
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+          }
+        }
+      }
+
+      .el-input {
+        box-sizing: border-box;
+        input {
+          height: 48px;
+          padding-left: 35px;
+          font-size: $base-font-size-default;
+          line-height: 58px;
+          background: none;
+          border:1px solid #e1e1e1;
+        }
+        &.codebox input{
+          padding-right: 100px;
+        }
+        &.codebox{
+          .el-input__suffix{
+            right:0;
+            top: 1px;
+            width: 100px;
+            height: 47px;
+            .el-input__suffix-inner{
+              height:100%;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+.footer{
+  width: 1400px;
+  margin: 20px auto 0;
+  text-align: center;
+}

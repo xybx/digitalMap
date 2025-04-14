@@ -1,0 +1,41 @@
+::v-deep{
+  .el-dialog{
+    .el-dialog__body{
+      padding:10px 20px;
+      .el-radio-group{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        .el-radio{
+          width:20%;
+          margin-top:25px;
+          white-space:break-spaces;
+        }
+        &.levelbox{
+          .el-radio{
+            width:47%;
+            margin-top:25px;
+            white-space: break-spaces;
+          }
+        }
+      }
+      .el-table__body{
+        .cell{
+          .el-radio-group{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            .el-radio{
+              width:50%;
+              margin-top:0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
