@@ -8,7 +8,6 @@
 -->
 <template>
   <el-dropdown v-if="theme.showLanguage" @command="handleCommand">
-    <!-- <vab-icon icon="translate" /> -->
     <i class="iconfont icon-translate"></i>
     <template #dropdown>
       <el-dropdown-menu>

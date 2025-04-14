@@ -170,7 +170,7 @@ export default {
         return {
           id:item.pid,
           name:item.name,
-          children: item.userList.length > 0 ? item.userList.map(val=>{
+          children: item.userList && item.userList.length > 0 ? item.userList.map(val=>{
             return {
               id:val.pid,
               name:val.username

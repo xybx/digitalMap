@@ -2,7 +2,6 @@
   <el-breadcrumb class="vab-breadcrumb" separator=">">
     <el-breadcrumb-item v-for="(item, index) in levelList" :key="index">
       <a @click.prevent="handleLink(item.redirect)">
-        <!-- <vab-icon v-if="item.meta && item.meta.icon" :icon="item.meta.icon" /> -->
         <i v-if="item.meta && item.meta.icon" :class="item.meta.icon"></i>
         {{ translateTitle(item.meta.title) }}
       </a>

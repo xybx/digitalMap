@@ -26,11 +26,11 @@
             class="column-grid"
           >
             <div>
-              <!-- <vab-icon
-                v-if="item.meta.icon"
-                :icon="item.meta.icon"
-                :is-custom-svg="item.meta.isCustomSvg"
-              /> -->
+<!--              <vab-icon-->
+<!--                v-if="item.meta.icon"-->
+<!--                :icon="item.meta.icon"-->
+<!--                :is-custom-svg="item.meta.isCustomSvg"-->
+<!--              />-->
               <i v-if="item.meta.icon" :class="item.meta.icon"></i>
               <span>
                 {{ translateTitle(item.meta.title) }}

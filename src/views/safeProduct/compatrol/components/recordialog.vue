@@ -62,7 +62,7 @@
             <span>{{ item.examidea ? item.examidea: '暂无办理意见' }}</span>
             <el-image v-if='item.examimg && item.examimg.length >0' v-for='(val,key) in item.examimg' :key='key' :src='val' :preview-src-list="item.examimg" :z-index="2999"></el-image>
           </div>
-          <span class="nextman" v-if="item.nextusername != ''"><label>下阶段办理人:</label>{{item.nextusername}}</span>s
+          <span class="nextman" v-if="item.nextusername!= ''"><label>下阶段办理人:</label>{{item.nextusername}}</span>
         </el-timeline-item>
       </el-timeline>
       <template v-else>
@@ -183,7 +183,7 @@
               isblue:item.statue == 1 ? true : false,
               isorg:item.statue == 2 || item.statue == 5 ? true : false,
               isgrey:item.statue == 3 || item.statue == 4 ? true : false,
-              nextusername: item.nextstatue && item.nextstatue !==0 ? item.nextusername : ''
+              nextusername:item.nextstatue && item.nextstatue != 0 ? item.nextusername : ''
             }
           })
         }else {
@@ -343,13 +343,13 @@
             }
           }
           .nextman{
-            width:100%;
-            margin-top:15px;
+            width: 100%;
+            margin-top: 15px;
             color: #666;
             display: block;
             label{
-              font-weight: bold;
               color: #333;
+              font-weight:bold;
             }
           }
         }

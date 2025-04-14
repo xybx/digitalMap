@@ -90,7 +90,7 @@
           </el-button>
         </el-form>
       </el-col>
-      <el-col :lg="1" :md="1" :sm="24" :xl="1" :xs="24" style="height:calc(100% - 100px)">
+      <el-col :lg="1" :md="1" :sm="24" :xl="1" :xs="24" style="height:calc(100% - 107px)">
         <div style="color: transparent"></div>
       </el-col>
     </el-row>

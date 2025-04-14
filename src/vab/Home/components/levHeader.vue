@@ -52,7 +52,7 @@ export default {
       },1000)
     },
     getData(){
-      this.titleName = '博山区大数据综合服务平台'
+      this.titleName = '牟平区数字乡村服务平台'
     },
   }
 }

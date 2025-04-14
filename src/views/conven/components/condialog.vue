@@ -84,7 +84,7 @@
           </template>
           <template v-if="intitle === '转办' || intitle === '选择待办人员'">
             <el-form-item :label="intitle==='转办'? '转办人':'待办人员'" prop="uid">
-              <el-cascader v-model="innerData.uid" :options="options" :props="props" filterable placeholder="请选择人员" @change="transChange"></el-cascader>
+              <el-cascader ref="cascader" v-model="innerData.uid" :options="options" :props="props" filterable placeholder="请选择人员" @change="transChange"></el-cascader>
             </el-form-item>
           </template>
         </el-form>
@@ -264,14 +264,14 @@ export default {
       if(res.code === 200){
         this.options = res.data.map(item=>{
           return {
-            id:item.pid,
+            id:Number(item.pid),
             name:item.name,
-            children:item.userList.map(val=>{
+            children:item.userList && item.userList.length > 0 ? item.userList.map(val=>{
               return {
-                id:val.pid,
+                id:Number(val.pid),
                 name:val.username,
               }
-            })
+            }) : []
           }
         })
       }

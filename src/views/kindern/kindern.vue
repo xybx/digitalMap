@@ -46,7 +46,7 @@
                     {{ row[item.prop] ? row[item.prop] : 0 }}
                   </template>
                   <template v-else-if="item.prop == 'applystage'">
-                    <el-tag :type="row[item.prop] == 1 || row[item.prop] == 4 ? 'primary' : row[item.prop] == 2 ?'success':'warning'">{{row[item.prop] == 1 ? '第一阶段': row[item.prop] == 2 ? '第二阶段': row[item.prop] == 3 ? '补录阶段' : '线下报名'}}</el-tag>
+                    <el-tag :type="row[item.prop] == 1 ? 'primary' : row[item.prop] == 2 ?'success':'warning'">{{row[item.prop] == 1 ? '第一阶段': row[item.prop] == 2 ? '第二阶段':'补录阶段'}}</el-tag>
                   </template>
                   <template v-else>
                     {{ row[item.prop] ? row[item.prop] : '暂无数据' }}
@@ -81,9 +81,9 @@
                     编辑
                   </el-button>
                   <el-button v-if="tabCard == 'codeth' && row.status == 0" type="success" plain @click.stop="editClick(row.pid)">审核</el-button>
-<!--                  <el-button v-if="tabCard == 'codefth' && row.chouhaostate == 0" type="success" plain @click.stop="kschClick(row.pid, row.annual, row.chouhaostate)">开始抽号</el-button>-->
+                  <el-button v-if="tabCard == 'codefth' && row.chouhaostate == 0" type="success" plain @click.stop="kschClick(row.pid, row.annual, row.chouhaostate)">开始抽号</el-button>
                   <el-button v-if="tabCard == 'codefth'" type="primary" plain @click.stop="infoClick(row.pid, row.annual, row.chouhaostate)">录取信息</el-button>
-<!--                  <el-button v-if="tabCard == 'codefth'" type="warning" plain @click.stop="ckjgClick(row.pid, row.annual)">查看结果</el-button>-->
+                  <el-button v-if="tabCard == 'codefth'" type="warning" plain @click.stop="ckjgClick(row.pid, row.annual)">查看结果</el-button>
                   <el-button v-if="tabCard != 'codeth' && tabCard != 'codefth'" type="danger" plain @click.stop="delClick(row.pid)">删除</el-button>
                 </template>
               </el-table-column>
@@ -102,7 +102,6 @@
     <jieguoDialog ref="jieguo" @getData="getData" :tcard="tabCard" />
     <shequDialog ref="shequ" @getData="getData" :tcard="tabCard" />
     <lookchoujDialog ref="lookinfo" @getData="getData" :tcard="tabCard" />
-    <signuplog ref="signup" @getData="getData"/>
   </div>
 </template>
 <script>
@@ -115,7 +114,6 @@ import youerDialog from './components/youerDialog.vue'
 import shequDialog from './components/shequDialog.vue'
 import kindernlog from './components/kindernlog.vue'
 import kindquery from './components/kindquery.vue'
-import signuplog from "./components/signuplog.vue";
 import {
   getkinderlist,
   getbaominglist,
@@ -156,8 +154,7 @@ export default {
     choujiangDialog,
     jieguoDialog,
     shequDialog,
-    lookchoujDialog,
-    signuplog
+    lookchoujDialog
   },
   computed:{
     ...mapGetters({
@@ -228,7 +225,7 @@ export default {
       } else if (this.tabCard == 'codend') {
         this.formData.pagenum = this.pagenum
         this.formData.pagesize = this.pagesize
-        this.formData.annual = this.formData.annual
+        this.formData.annual = Number(this.formData.annual)
         res = await getzhaoshenglist(this.formData)
         if (res.code == 200 && res.data) {
           this.tableData = res.data.list ? res.data.list : []
@@ -239,7 +236,6 @@ export default {
       } else if (this.tabCard == 'codeth') {
         this.formData.pagenum = this.pagenum
         this.formData.pagesize = this.pagesize
-        this.formData.year = this.formData.annual
         res = await getbaominglist(this.formData)
         if (res.code == 200 && res.data) {
           this.tableData = res.data.list ? res.data.list : []
@@ -250,7 +246,7 @@ export default {
       } else if (this.tabCard == 'codefth') {
         this.formData.pagenum = this.pagenum
         this.formData.pagesize = this.pagesize
-        this.formData.annual = this.formData.annual
+        this.formData.annual = Number(this.formData.annual)
         res = await postDrawingList(this.formData)
         if (res.code == 200 && res.data) {
           this.tableData = res.data.list ? res.data.list : []
@@ -271,12 +267,13 @@ export default {
       }
     },
     tabChange(val) {
+      // this.tabloading = true
       this.tabCard = val
       this.pagenum = 1
-      this.$refs.fquery.clearform()
       this.formData = {}
       this.getTableFields()
       this.getData()
+      this.$refs.fquery.clearform()
     },
     SizeChange(val) {
       this.pagesize = val
@@ -291,14 +288,13 @@ export default {
       this.pagenum = 1
       this.getData()
     },
-    addClick() {
+    addClick(pid) {
       if (this.tabCard == 'codest') {
         this.$refs.youer.showEdit(null, 1)
       } else if (this.tabCard == 'codend') {
         this.$refs.zhao.showEdit(null, 1)
       } else if (this.tabCard == 'codeth') {
-        // this.$refs.zhao.showEdit(null, 1)
-        this.$refs.signup.showEdit()
+        this.$refs.zhao.showEdit(null, 1)
       } else if (this.tabCard == 'codeftf') {
         this.$refs.shequ.showEdit(null, 1)
       }

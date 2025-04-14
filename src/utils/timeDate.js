@@ -1,14 +1,9 @@
-/**
- * @description 时间格式化转换
- * @param value
- * @returns {boolean}
- */
-export function getDate(time,e='yyyy-MM-dd hh:mm:ss') {
+export function getDate(e, time) {
     /**
      * time :date 类型 可以不传
      * e: 返回格式 yyyy-MM-dd hh:mm:ss (默认) ||  yyyy-MM-dd
      */
-    let fmt = e;
+    let fmt = e || "yyyy-MM-dd hh:mm:ss";
     let data = new Date(time || new Date());
     let o = {
         "M+": data.getMonth() + 1, //月份
@@ -36,22 +31,9 @@ export function getDate(time,e='yyyy-MM-dd hh:mm:ss') {
     }
     return fmt;
 }
-/**
- * @description 前缀
- * @param value
- * @returns {boolean}
- */
-
 export function PrefixInteger(num, length) {
     return (Array(length).join(num) + num).slice(-length);
 }
-
-/**
- * @description 前缀补零
- * @param value
- * @returns {boolean}
- */
-
 export function PrefixZero(num, n) {
     return (Array(n).join(0) + num).slice(-n);
 }

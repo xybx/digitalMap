@@ -1,6 +1,5 @@
 <template>
   <span v-if="theme.showSearch">
-    <!-- <vab-icon icon="search-line" @click="openDialog" /> -->
     <i class="el-icon-search" @click="openDialog"></i>
     <el-dialog :visible.sync="dialogVisible" append-to-body width="40%">
       <el-form :model="queryForm" @submit.native.prevent>

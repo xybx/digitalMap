@@ -7,12 +7,6 @@
     :class="{'is-collapse': collapse}"
   >
     <template #title>
-      <!-- <vab-icon
-        v-if="itemOrMenu.meta && itemOrMenu.meta.icon"
-        :icon="itemOrMenu.meta.icon"
-        :is-custom-svg="itemOrMenu.meta.isCustomSvg"
-        :title="translateTitle(itemOrMenu.meta.title)"
-      /> -->
       <i v-if="itemOrMenu.meta && itemOrMenu.meta.icon" :class="itemOrMenu.meta.icon" :title="translateTitle(itemOrMenu.meta.title)"></i>
       <span :title="translateTitle(itemOrMenu.meta.title)">{{ translateTitle(itemOrMenu.meta.title) }}</span>
     </template>

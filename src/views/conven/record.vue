@@ -73,8 +73,7 @@ export default {
       pageSize: 0,
       pageSizes: [10, 15, 20],
       formData:{},
-      record:true,
-      showIndex:localStorage.getItem('showMenuIndex')
+      record:true
     }
   },
   computed:{
@@ -94,16 +93,6 @@ export default {
     this.getData()
     if(this.pid){
       this.look(this.pid)
-    }
-  },
-  watch:{
-    showIndex:{
-      handler(val){
-        if(val != 2){
-          this.$router.push({path:'/'})
-        }
-      },
-      immediate:true
     }
   },
   methods:{
@@ -169,6 +158,7 @@ export default {
         return ret
       } catch (error) {
         console.log(error, 'error')
+        // this.$message.error(error.message)
         return false
       }
     },

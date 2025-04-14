@@ -84,7 +84,7 @@ export default {
         this.tableColumns = this.level == 2 ? [
           {prop: 'villageName', label: '所属镇街'},
           {prop: 'villageNumber', label: '镇街编号'},
-          {prop: 'countryName', label: '所属村居'},
+          {prop: 'countryName', label: '所属村居/社区'},
           {prop: 'placeName', label: '场所名称'},
           {prop: 'pid', label: '场所编码'},
           {prop: 'baopianLeader', label: '包片领导'},
@@ -93,7 +93,7 @@ export default {
         ] : [
           {prop: 'villageName', label: '所属镇街'},
           {prop: 'villageNumber', label: '镇街编号'},
-          {prop: 'countryName', label: '所属村居'},
+          {prop: 'countryName', label: '所属村居/社区'},
           {prop: 'placeName', label: '场所名称'},
           {prop: 'pid', label: '场所编码'},
           {prop: 'baopianLeader', label: '包片领导'},
@@ -114,7 +114,7 @@ export default {
       } else if (this.tabCard == 'codend') {
         this.tableColumns = [
           {prop: 'areaname', label: '所属镇街'},
-          {prop: 'villagename', label: '所属村居'},
+          {prop: 'villagename', label: '所属村居/社区'},
           {prop: 'name', label: '人员姓名'},
           {prop: 'memberid', label: '身份证号'},
           {prop: 'phonenum', label: '手机号'},
@@ -124,7 +124,7 @@ export default {
       } else if (this.tabCard == 'codeth') {
         this.tableColumns = this.level == 2 ? [
           {prop: 'incodeareaname', label: '所属镇街'},
-          {prop: 'incodevillagename', label: '所属村居'},
+          {prop: 'incodevillagename', label: '所属村居/社区'},
           {prop: 'incodetype', label: '场所类别'},
           {prop: 'incode', label: '场所名称'},
           {prop: 'username', label: '人员姓名'},
@@ -135,7 +135,7 @@ export default {
           {prop: 'mattertype', label: '登记事项'},
         ]:[
           {prop: 'incodeareaname', label: '所属镇街'},
-          {prop: 'incodevillagename', label: '所属村居'},
+          {prop: 'incodevillagename', label: '所属村居/社区'},
           {prop: 'incodetype', label: '区级场所类别'},
           {prop: 'incodevtype', label: '镇街场所类别'},
           {prop: 'incode', label: '场所名称'},

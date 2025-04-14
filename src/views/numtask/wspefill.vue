@@ -79,8 +79,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userData:'user/userData',
-      token:'user/token'
+      userData:'user/userData'
     })
   },
   created() {
@@ -128,102 +127,28 @@ export default {
       this.getData()
     },
     porcessClick(){
-      let _this = this
-      const loading = _this.$loading({
-        lock: true,
-        text: '文件下载中...',
-        spinner: 'el-icon-loading',
-        background: 'rgba(0, 0, 0, 0.6)'
-      });
-      axios({
-        headers: { Authorization:this.token },
-        type: 'application/ json; charset = utf-8',
-        method: 'GET',
-        url: `${window.apiURL}/thematicexport/reportform?taskid=${_this.pid}`,
-        responseType: 'arraybuffer',
-      }).then(function (res) {
-        const fileName = '模板下载.xls';
-        const blob = new Blob([res.data]);
-        //创建一个a标签并设置href属性，之后模拟人为点击下载文件
-        let link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = fileName;
-        link.click(); //模拟点击
-        //释放资源并删除创建的a标签
-        URL.revokeObjectURL(link.href);
-        setTimeout(() => {
-          loading.close();
-          _this.$message.success('文件下载成功！')
-        }, 2000);
-      })
+      let a = document.createElement("a");
+      let event = new MouseEvent("click");
+      a.download = '列表下载';
+      a.href = `${this.$baseUrl}/thematicexport/reportform?taskid=${this.pid}`;
+      a.dispatchEvent(event);
+      this.$message.success('操作成功，稍后请在下载列表查看')
     },
     exportClick(){
-      let _this = this
-      let url = ''
-      if(this.type == 2){
-        url = `${this.$baseUrl}/thematicexport/checkfilllist?taskid=${this.pid}`
-      }else {
-        url = `${this.$baseUrl}/thematicexport/ownfilllist?taskid=${this.pid}&userid=${this.userData.pid}`
-      }
-      const loading = _this.$loading({
-        lock: true,
-        text: '文件下载中...',
-        spinner: 'el-icon-loading',
-        background: 'rgba(0, 0, 0, 0.6)'
-      });
-      axios({
-        headers: { Authorization:this.token },
-        type: 'application/ json; charset = utf-8',
-        method: 'GET',
-        url: url,
-        responseType: 'arraybuffer',
-      }).then(function (res) {
-        const fileName = '列表下载.xls';
-        const blob = new Blob([res.data]);
-        //创建一个a标签并设置href属性，之后模拟人为点击下载文件
-        let link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = fileName;
-        link.click(); //模拟点击
-        //释放资源并删除创建的a标签
-        URL.revokeObjectURL(link.href);
-        setTimeout(() => {
-          loading.close();
-          _this.$message.success('文件下载成功！')
-        }, 2000);
-      })
+      let a = document.createElement("a");
+      let event = new MouseEvent("click");
+      a.download = '列表下载';
+      a.href = this.type == 2 ? `${this.$baseUrl}/thematicexport/checkfilllist?taskid=${this.pid}`:`${this.$baseUrl}/thematicexport/ownfilllist?taskid=${this.pid}&userid=${this.userData.pid}`;
+      a.dispatchEvent(event);
+      this.$message.success('操作成功，稍后请在下载列表查看')
     },
     moudleClick(){
-      let _this = this
-      if(this.type == 2){
-        const loading = _this.$loading({
-          lock: true,
-          text: '文件下载中...',
-          spinner: 'el-icon-loading',
-          background: 'rgba(0, 0, 0, 0.6)'
-        });
-        axios({
-          headers: { Authorization:this.token },
-          type: 'application/ json; charset = utf-8',
-          method: 'GET',
-          url: `${window.apiURL}/thematicexport/fillmodule?taskid=${_this.pid}`,
-          responseType: 'arraybuffer',
-        }).then(function (res) {
-          const fileName = '模板下载.xls';
-          const blob = new Blob([res.data]);
-          //创建一个a标签并设置href属性，之后模拟人为点击下载文件
-          let link = document.createElement('a');
-          link.href = window.URL.createObjectURL(blob);
-          link.download = fileName;
-          link.click(); //模拟点击
-          //释放资源并删除创建的a标签
-          URL.revokeObjectURL(link.href);
-          setTimeout(() => {
-            loading.close();
-            _this.$message.success('文件下载成功！')
-          }, 2000);
-        })
-      }
+      let a = document.createElement("a");
+      let event = new MouseEvent("click");
+      a.download = '模板下载';
+      a.href = this.type == 2 ? `${this.$baseUrl}/thematicexport/fillmodule?taskid=${this.pid}`:``;
+      a.dispatchEvent(event);
+      this.$message.success('操作成功，稍后请在下载列表查看')
     },
     lookClick(tid,tuid){
       this.$refs.tasklog.showEdit(this.pid,3,tid,null,tuid)

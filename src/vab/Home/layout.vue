@@ -1,5 +1,5 @@
 <template>
-  <div class="home animate__animated animate__fadeInLeft" :class="classHome">
+  <div class="home animate__animated animate__fadeInLeft" :class="classHome" :style="{background:backData.shouyebeijing ?'url('+ baseurl + '/gridfs/artworkmaster/'+ backData.shouyebeijing +') center fixed no-repeat' : ''}">
     <div class="bgbox" v-if="backData.level != 2 &&backData.style == 1">
       <i class="lightbox animate__animated animate__fadeInDown animate__delay-1s"></i>
       <i class="bgbox animate__animated animate__zoomIn animate__delay-3s"></i>

@@ -16,8 +16,8 @@
       menu-trigger="click"
       mode="vertical"
       :class="redcommon ? 'redcon' : ''">
-      <template v-for="(route,index) in handleRoutes">
-        <vab-menu v-if="!route.hidden" :key="index" :item="route" :redcommon="redcommon" />
+      <template v-for="route in handleRoutes">
+        <vab-menu v-if="!route.hidden" :key="route.path" :item="route" :redcommon="redcommon" />
       </template>
     </el-menu>
   </el-scrollbar>

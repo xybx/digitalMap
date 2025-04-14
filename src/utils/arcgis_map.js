@@ -1136,8 +1136,8 @@ export function Attribute() {
                       name: '操作',
                       value: '查看',
                       type: layerName,
-                      t_index: result.results[i].feature.attributes['OBJECTID'],
-                      // t_index: result.results[i].feature.attributes['objectid'],
+                      t_index:
+                        result.results[i].feature.attributes['OBJECTID'],
                     })
                   } else if (
                     layerName.indexOf('居民') >= 0 ||

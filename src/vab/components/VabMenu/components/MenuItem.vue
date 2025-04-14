@@ -1,11 +1,5 @@
 <template>
   <el-menu-item v-if="redcon ? itemOrMenu.childmenuindex == childMenuIndex && itemOrMenu.showMenuIndex == showMenuIndex : itemOrMenu.showMenuIndex == showMenuIndex" :index="itemOrMenu.path" @click="handleLink">
-    <!-- <vab-icon
-      v-if="itemOrMenu.meta && itemOrMenu.meta.icon"
-      :icon="itemOrMenu.meta.icon"
-      :is-custom-svg="itemOrMenu.meta.isCustomSvg"
-      :title="translateTitle(itemOrMenu.meta.title)"
-    /> -->
     <i v-if="itemOrMenu.meta && itemOrMenu.meta.icon" :class="itemOrMenu.meta.icon" :title="translateTitle(itemOrMenu.meta.title)"></i>
     <span :title="translateTitle(itemOrMenu.meta.title)">
       {{ translateTitle(itemOrMenu.meta.title) }}

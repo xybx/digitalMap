@@ -180,41 +180,6 @@ export function postshequAdd(data) {
     data,
   })
 }
-//获取幼儿园列表
-export function getSchoolList(params) {
-  return request({
-    url: '/pcapi/kindergarten/getschoolList',
-    method: 'post',
-    params,
-  })
-}
-
-//根据小区获取幼儿园列表
-// export function getSchoolHouseList(data) {
-//   return request({
-//     url: '/pcapi/kindergarten/getschoolByHouse',
-//     method: 'post',
-//     data,
-//   })
-// }
-
-// //小区列表
-// export function getCommunityList() {
-//   return request({
-//     url: '/pcapi/kindergarten/getcommunityList',
-//     method: 'post'
-//   })
-// }
-
-//添加保存报名信息
-export function putSignUp(data) {
-  return request({
-    url: '/pcapi/kindergarten/addSignUp',
-    method: 'post',
-    data,
-  })
-}
-
 //携带token下在文件
 export function getFileUrl(token) {
   return request({

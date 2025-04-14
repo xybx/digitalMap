@@ -1,10 +1,10 @@
 <template>
-  <el-dialog :visible.sync="dialogVisible" :title="headerTitle" width="42%" top="1%" :before-close="keys == 2 ? lookClose : handleClose" :append-to-body="true" :close-on-click-modal="false" center>
+  <el-dialog :visible.sync="dialogVisible" :title="headerTitle" width="40%" top="1%" :before-close="keys == 2 ? lookClose : handleClose" :append-to-body="true" :close-on-click-modal="false" center>
     <!-- 表单 -->
     <div class="btnbox">
       <el-button type="warning" size="small" @click="exportList">全部导出</el-button>
     </div>
-    <el-form ref="frestData" :label-position="labelPosition" :model="frestData" status-icon label-width="150px">
+    <el-form ref="frestData" :label-position="labelPosition" :model="frestData" status-icon label-width="140px">
       <el-form-item label="总录取人数">
         <el-input v-model="frestData.enrollsum" placeholder="" readonly />
       </el-form-item>
@@ -36,15 +36,6 @@
         </ul>
       </div>
       <div class="line"></div>
-      <el-form-item label="线下报名人数">
-        <el-input v-model="frestData.fourSum" placeholder="" readonly />
-      </el-form-item>
-      <div class="start-before">
-        <ul>
-          <li v-for="(item, index) in forthperList" :key="index">{{ index + 1 }}、{{ item.babyname }}</li>
-        </ul>
-      </div>
-      <div class="line"></div>
     </el-form>
     <!-- 表单 -->
     <span slot="footer" class="dialog-footer">
@@ -69,7 +60,6 @@ export default {
       OneperList: [], //开始抽奖前所有学生名单
       TwoperList: [], //抽奖后学生名单
       ThdperList: [], //抽奖后学生名单
-      forthperList:[],//线下报名学生名单
       drawingYear: '',//抽奖传参年份
       drawingId: '', //抽奖传参学校id
       drawingState: '',//当前抽奖状态
@@ -107,7 +97,6 @@ export default {
       this.OneperList = data.stageonechildrens
       this.TwoperList = data.stagetwochildrens
       this.ThdperList = data.stagethreechildrens
-      this.forthperList = data.stagefourchildrens
     },
     exportList(){
       if(this.annual == null || this.schoolid == null){

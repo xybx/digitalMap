@@ -62,37 +62,38 @@ import Point from "@arcgis/core/geometry/Point";
 import WebTileLayer from "@arcgis/core/layers/WebTileLayer";
 import SpatialReference from "@arcgis/core/geometry/SpatialReference";
 import * as projection from "@arcgis/core/geometry/projection";
-import {getLayersOption} from '../api/mapApi'
+//arcgis引入
+import { getLayersOption } from '../api/mapApi'
 import userconfig from '@/utils/userconfig.js'
-import {getlayers} from "@/utils/arcgis_map";
+import { getlayers } from '@/utils/arcgis_map'
 export default {
   name: 'Mapquery',
-  props:['dialogVisible'],
+  props: ['dialogVisible'],
   data() {
     return {
-      searchForm:{
-        mainData:[{selVal: '',conVal: '',value: ''}]
+      searchForm: {
+        mainData: [{ selVal: '', conVal: '', value: '' }],
       },
-      layData:[],
-      attrData:[],
-      tagData:[],
-      tableData:[],
-      resultData:[],
-      resCols:[],
-      layout: "total, sizes, prev, pager, next",
+      layData: [],
+      attrData: [],
+      tagData: [],
+      tableData: [],
+      resultData: [],
+      resCols: [],
+      layout: 'total, sizes, prev, pager, next',
       total: 0,
-      pageNo:1,
+      pageNo: 1,
       pageSize: 0,
       pageSizes: [3, 5, 8],
-      drawer:false,
-      Turl:'',
+      drawer: false,
+      Turl: '',
       currentRow: null,
     }
   },
   components: {},
   computed: {},
   created() {
-    this.pageSize = this.pageSizes[0];
+    this.pageSize = this.pageSizes[0]
   },
   mounted() {
     this.getTuCeng()
@@ -108,7 +109,7 @@ export default {
       let { data } = await getLayersOption({ type: 0 })
       this.layData = data ? data : []
     },
-    layerChange(val){
+    layerChange(val) {
       this.searchForm.region = val
       this.attrData = this.layData.filter(item => item.pid == val)[0].fields
       this.Turl = this.layData.filter(item => item.pid == val)[0].layerurl
@@ -121,18 +122,18 @@ export default {
       let type = this.attrData.filter(item=> item.fieldname == val)[0].fieldtype
       this.getCondition(type)
     },
-    pushClick(arr){
+    pushClick(arr) {
       arr.push({})
       this.$forceUpdate()
     },
-    delClick(arr){
+    delClick(arr) {
       arr.pop({})
       this.$forceUpdate()
     },
     saveData() {
       let app = this
       let arr = this.searchForm.mainData
-      this.$refs.searchForm.validate(async (valid)=>{
+      this.$refs.searchForm.validate(async(valid) => {
         if (valid) {
           let queryParams = new Query({
             where: '1=1',
@@ -148,20 +149,20 @@ export default {
           app.total = app.resultData.length
           app.tableData = app.resultData.slice(0, app.pageSize)
           if (res.features.length == 0) app.$message.warning('没有查询到数据')
-        } else {
-          return false
-        }
+          } else {
+            return false
+          }
       })
     },
-    resetForm(){
+    resetForm() {
       this.searchForm = this.$options.data().searchForm
       this.$refs.searchForm.resetFields()
       this.drawer = false
     },
-    handleClose(){
+    handleClose() {
       this.$emit('handleClose')
     },
-    closeClick(){
+    closeClick() {
       this.searchForm = this.$options.data().searchForm
       this.drawer = false
     },
@@ -175,72 +176,74 @@ export default {
       this.tableData = this.resultData.slice((val - 1) * this.pageSize,val * this.pageSize)
     },
     // 搜索框获取内容
-    async CurrentTabChange(val) {
+   async CurrentTabChange(val) {
       this.currentRow = val
       var app = this
-      let queryParams = new Query({
-        where: '1=1',
-        outFields: ['*'],
-        returnGeometry: true,
-      })
-      queryParams.where += ` and OBJECTID = ${app.currentRow.OBJECTID}`
-      const res = await query.executeQueryJSON(app.Turl, queryParams)
-
-      let geo = res.features[0].geometry
-      let symbols =
-        geo.type == 'point'
-          ? Object.assign(
-            {},
-            {
-              type: 'simple-marker',
-              color: 'red',
-              size: 25,
-              outline: { width: 0.5, color: 'darkblue' },
-            }
-          )
-          : Object.assign(
-            {},
-            {
-              type: 'simple-fill',
-              color: [255, 255, 0, 0.2],
-              style: 'solid',
-              outline: { color: 'red', width: 2 },
-            }
-          )
-      let graphic = new Graphic({
-        geometry: geo,
-        symbol: symbols,
-      })
-      userconfig.view.graphics.removeAll()
-      userconfig.view.graphics.add(graphic)
-
-      if (
-        geo.spatialReference.wkid == 102100 ||
-        geo.spatialReference.wkid == 3857
-      ) {
-        res.features[0].geometry.type == 'point'
-          ? (userconfig.view.center = geo)
-          : (userconfig.view.extent = res.features[0].geometry.extent)
-        userconfig.view.scale = 5000
-      } else {
-        if (!geo.spatialReference.isGeographic) {
-          let outSpatialReference = new SpatialReference({
-            wkid: 4490,
+          let queryParams = new Query({
+            where: '1=1',
+            outFields: ['*'],
+            returnGeometry: true,
           })
-          projection.load().then(function () {
-            geo = projection.project(geo, outSpatialReference)
+          queryParams.where += ` and OBJECTID = ${app.currentRow.OBJECTID}`
+          const res = await query.executeQueryJSON(app.Turl, queryParams)
+
+          let geo = res.features[0].geometry
+          let symbols =
+            geo.type == 'point'
+              ? Object.assign(
+                  {},
+                  {
+            type: 'simple-marker',
+            color: 'red',
+            size: 25,
+                    outline: { width: 0.5, color: 'darkblue' },
+                  }
+                )
+              : Object.assign(
+                  {},
+                  {
+            type: 'simple-fill',
+            color: [255, 255, 0, 0.2],
+            style: 'solid',
+                    outline: { color: 'red', width: 2 },
+                  }
+                )
+          let graphic = new Graphic({
+            geometry: geo,
+            symbol: symbols,
+          })
+          userconfig.view.graphics.removeAll()
+          userconfig.view.graphics.add(graphic)
+
+          if (
+            geo.spatialReference.wkid == 102100 ||
+            geo.spatialReference.wkid == 3857
+          ) {
+            res.features[0].geometry.type == 'point'
+              ? (userconfig.view.center = geo)
+              : (userconfig.view.extent = res.features[0].geometry.extent)
+            userconfig.view.scale = 5000
+          } else {
+            if (!geo.spatialReference.isGeographic) {
+              let outSpatialReference = new SpatialReference({
+                wkid: 4490,
+              })
+              projection.load().then(function () {
+                geo = projection.project(geo, outSpatialReference)
             let center = geo.type == 'point' ? geo : geo.centrid
             userconfig.view.center = [center.longitude, center.latitude]
             userconfig.view.scale = 5000
-          })
-        } else {
-          let center = geo.type == 'point' ? geo : geo.centrid
-          userconfig.view.center = [center.longitude, center.latitude]
-          userconfig.view.scale = 5000
-        }
-      }
+              })
+            } else {
+              let center = geo.type == 'point' ? geo : geo.centrid
+              userconfig.view.center = [center.longitude, center.latitude]
+              userconfig.view.scale = 5000
+          }
+          }
+          // userconfig.view.zoom = 17
+          console.log(userconfig.view.scale)
     },
-  }
+  },
 }
 </script>
 
@@ -291,10 +294,10 @@ export default {
                 tr{
                   background:none;
                   cursor: pointer;
-                  td{
+                  td {
                     border-color: #309ef3;
 
-                    .cell{
+                    .cell {
                       color: #5399ef;
                     }
                   }
@@ -319,7 +322,7 @@ export default {
                 li{
                   background:none;
                   color: #fff;
-                  &.active{
+                  &.active {
                     color: #1890ff;
                   }
                 }
@@ -373,7 +376,7 @@ export default {
               }
             }
           }
-          .linebox{
+          .linebox {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -428,6 +431,5 @@ export default {
       }
     }
   }
-
 }
 </style>

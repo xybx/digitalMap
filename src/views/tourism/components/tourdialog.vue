@@ -49,8 +49,7 @@ import { quillEditor,Quill } from 'vue-quill-editor'
 import {ImageExtend, QuillWatch} from 'quill-image-extend-module'
 import {deleteimgFile} from "@/views/petition/api/petion";
 import {getTourId, putTour} from "@/views/tourism/api/tour";
-import Point from "@arcgis/core/geometry/Point";
-import Graphic from "@arcgis/core/Graphic";
+import esriLoader from "esri-loader";
 Quill.register('modules/ImageExtend', ImageExtend)
 export default {
   name: 'tourdialog',
@@ -69,6 +68,10 @@ export default {
       },
       cateData:[],
       imgLists:[],
+      option:{
+        url: '/arcgis_js_api/library/4.22/init.js',
+        css: '/arcgis_js_api/library/4.22/esri/css/main.css',
+      },
       graphic:null,
       editorOption: {
         theme: "snow",
@@ -174,20 +177,30 @@ export default {
     },
     getGraphic(data){
       let app = this
-      let pt = new Point({
-        x:data.longitude,
-        y:data.latitude
+      esriLoader
+        .loadModules(
+          [
+            'esri/geometry/Point',
+            'esri/Graphic',
+          ],
+          app.option
+        ).then(function([Point,Graphic]){
+        let pt = new Point({
+          x:data.longitude,
+          y:data.latitude
+        })
+        var graphic = new Graphic({
+          geometry: pt,
+          symbol: {
+            type: 'picture-marker', // autocasts as new PictureMarkerSymbol()
+            url: require("@/assets/Marker.png"),
+            width: '30px',
+            height: '30px',
+          },
+        })
+        debugger
+        app.graphic = graphic
       })
-      var graphic = new Graphic({
-        geometry: pt,
-        symbol: {
-          type: 'picture-marker', // autocasts as new PictureMarkerSymbol()
-          url: require("@/assets/Marker.png"),
-          width: '30px',
-          height: '30px',
-        },
-      })
-      app.graphic = graphic
     },
     saveData(){
       this.$refs.tourData.validate(async (valid)=>{
@@ -240,7 +253,7 @@ export default {
     uploadSuccess(fileList){
       this.imgLists = fileList.map(item=>{
         return {
-          fileid:item.fileid ? item.fileid : item.response?.data,
+          fileid:item.response?.data,
           url:item.url
         }
       })

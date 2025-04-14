@@ -71,16 +71,11 @@ export default {
   methods: {
     async getperson(){
       let res = await getallperson()
-      if (!res || !res.data) {
-        console.error("API 返回数据为空或格式不正确:", res);
-        this.options = [];
-        return;
-      }
       this.options = res.data.map(item=>{
         return{
           id:item.pid,
           name:item.name,
-          children:(item.userList != null && item.userList.length > 0 )  ? item.userList.map(val=>{
+          children:item.userList && item.userList.length > 0 ? item.userList.map(val=>{
             return {
               id:val.pid,
               name:val.username

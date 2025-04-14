@@ -80,7 +80,6 @@
       </el-main>
       <el-footer>
         Copyright
-        <!-- <vab-icon icon="copyright-line" /> -->
         <i class="iconfont icon-copyright"></i>
         {{ title }} {{ fullYear }}
       </el-footer>

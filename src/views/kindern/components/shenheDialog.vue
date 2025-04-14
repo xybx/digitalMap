@@ -35,22 +35,22 @@
           <span class="spany">身份证号</span><el-input v-model="frestData.guardianscard1" placeholder="" :readonly="true" style="width:10vmax" /><br>
           <span class="spany">手机号</span><el-input v-model="frestData.guardiansmobile1" placeholder="" :readonly="true" style="width:10vmax"/><br>
           <span class="spany">与幼儿关系</span><el-input v-model="frestData.guardiansship1" placeholder="" :readonly="true" style="width:10vmax"/><br>
-          <!--<p>户籍关系凭证</p>-->
-          <!--<template v-if="imgdata.length > 0" >-->
-          <!--  <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata" :key="index" :src="item" :preview-src-list="imgdata" :z-index="2999">-->
-          <!--  </el-image>-->
-          <!--</template>-->
+          <p>户籍关系凭证</p>
+          <template v-if="imgdata.length > 0" >
+            <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata" :key="index" :src="item" :preview-src-list="imgdata" :z-index="2999">
+            </el-image>
+          </template>
         </el-form-item>
         <el-form-item v-if="!frestData.guardiansname2==''">
           <span class="spany">姓名</span><el-input v-model="frestData.guardiansname2" placeholder="" :readonly="true" style="width:10vmax"/><br>
           <span class="spany">身份证号</span><el-input v-model="frestData.guardianscard2" placeholder="" :readonly="true" style="width:10vmax" /><br>
           <span class="spany">手机号</span><el-input v-model="frestData.guardiansmobile2" placeholder="" :readonly="true" style="width:10vmax"/><br>
           <span class="spany">与幼儿关系</span><el-input v-model="frestData.guardiansship2" placeholder="" :readonly="true" style="width:10vmax"/><br>
-          <!--<p>户籍关系凭证</p>-->
-          <!--<template v-if="imgdata2.length > 0" >-->
-          <!--  <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata2" :key="index" :src="item" :preview-src-list="imgdata2" :z-index="2999">-->
-          <!--  </el-image>-->
-          <!--</template>-->
+          <p>户籍关系凭证</p>
+          <template v-if="imgdata2.length > 0" >
+            <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata2" :key="index" :src="item" :preview-src-list="imgdata2" :z-index="2999">
+            </el-image>
+          </template>
         </el-form-item>
       </el-form-item>
 
@@ -59,10 +59,10 @@
         <div v-if="frestData.policytype==1">
           <span class="spany">您选择的是</span><el-input v-model="youhui" placeholder="" :readonly="true" style="width:10vmax"/><br>
           <span class="spany">小区名称</span><el-input v-model="frestData.communityname" placeholder="" :readonly="true" style="width:10vmax"/><br>
-          <!--<p>物业（村委）开具的房产预审凭证</p>-->
-          <!--<template v-if="imgdata5.length > 0" >-->
-          <!--  <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata5" :key="index" :src="item" :preview-src-list="imgdata5" :z-index="2999"></el-image>-->
-          <!--</template>-->
+          <p>物业（村委）开具的房产预审凭证</p>
+          <template v-if="imgdata5.length > 0" >
+            <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata5" :key="index" :src="item" :preview-src-list="imgdata5" :z-index="2999"></el-image>
+          </template>
         </div>
         <!-- 幼随长 -->
         <div v-if="frestData.policytype==2">
@@ -72,11 +72,11 @@
         </div>
         <!-- 高层次人才或企业家子女 -->
         <div v-if="frestData.policytype==3">
-          <!--<p>高层次人才或企业家子女材料</p>-->
-          <!--<template v-if="imgdata3.length > 0" >-->
-          <!--  <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata3" :key="index" :src="item" :preview-src-list="imgdata3" :z-index="2999">-->
-          <!--  </el-image>-->
-          <!--</template><br>-->
+          <p>高层次人才或企业家子女材料</p>
+          <template v-if="imgdata3.length > 0" >
+            <el-image style="width: 5vmax;height: 5vmax;margin-right:0.5vmax" v-for="(item,index) in imgdata3" :key="index" :src="item" :preview-src-list="imgdata3" :z-index="2999">
+            </el-image>
+          </template><br>
           <span class="spany">家庭住址</span><el-input v-model="frestData.address" placeholder="" :readonly="true" style="width:10vmax"/><br>
         </div>
         <!-- 军人烈士子女 -->

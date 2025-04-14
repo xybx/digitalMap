@@ -145,7 +145,7 @@ export default {
         return {
           name:item.name,
           pid:item.pid,
-          children:item.userList.length > 0 ? item.userList.map(val=>{
+          children:item.userList && item.userList.length > 0 ? item.userList.map(val=>{
             return {
               name:val.username,
               pid:val.pid,
@@ -157,7 +157,7 @@ export default {
         return {
           name:item.name,
           pid:item.pid,
-          children:item.userList.length > 0 ? item.userList.map(val=>{
+          children:item.userList && item.userList.length > 0 ? item.userList.map(val=>{
             return {
               name:val.username,
               pid:val.pid,
@@ -190,7 +190,7 @@ export default {
               this.$message.error('请选择消息提醒周期')
               return false
             }
-           Object.assign(obj,{mainuserid:this.fireData.mainuserid[1]})
+            Object.assign(obj,{mainuserid:this.fireData.mainuserid[1]})
           }
           let res = this.tcard == 'msgrule' ? await putrule(obj): await putwork(obj)
           if(res.code == 200){
@@ -217,7 +217,7 @@ export default {
         return {
           name:item.name,
           pid:item.pid,
-          children:item.children.length > 0 ? item.children.map(v=>{
+          children:item.children && item.children.length > 0 ? item.children.map(v=>{
             Object.assign(v,{disabled:val == v.pid ? true : false})
             return v
           }) : []

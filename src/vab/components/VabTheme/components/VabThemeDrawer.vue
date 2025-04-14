@@ -11,8 +11,8 @@
       <div class="el-drawer__body">
         <el-form ref="form" :model="theme" label-position="left">
           <el-divider content-position="left">
-            <!-- <vab-icon icon="settings-3-line" /> -->
-            <i class="iconfont icon-settings--line"></i> 
+<!--            <vab-icon icon="settings-3-line" />-->
+            <i class="iconfont icon-settings--line"></i>
             {{ translateTitle('常用设置') }}
           </el-divider>
           <el-form-item>
@@ -28,8 +28,8 @@
                   effect="dark"
                   placement="top"
                 >
-                  <!-- <vab-icon icon="question-line" /> -->
-                  <i class="iconfont icon-question-line"></i> 
+<!--                  <vab-icon icon="question-line" />-->
+                  <i class="iconfont icon-question-line"></i>
                 </el-tooltip>
               </label>
             </template>
@@ -104,8 +104,8 @@
                   effect="dark"
                   placement="top"
                 >
-                  <!-- <vab-icon icon="question-line" /> -->
-                  <i class="iconfont icon-question-line"></i> 
+<!--                  <vab-icon icon="question-line" />-->
+                  <i class="iconfont icon-question-line"></i>
                 </el-tooltip>
               </label>
             </template>
@@ -123,8 +123,8 @@
                   effect="dark"
                   placement="top"
                 >
-                  <!-- <vab-icon icon="question-line" /> -->
-                  <i class="iconfont icon-question-line"></i> 
+<!--                  <vab-icon icon="question-line" />-->
+                  <i class="iconfont icon-question-line"></i>
                 </el-tooltip>
               </label>
             </template>
@@ -155,8 +155,8 @@
                   effect="dark"
                   placement="top"
                 >
-                  <!-- <vab-icon icon="question-line" /> -->
-                  <i class="iconfont icon-question-line"></i> 
+<!--                  <vab-icon icon="question-line" />-->
+                  <i class="iconfont icon-question-line"></i>
                 </el-tooltip>
               </label>
             </template>
@@ -182,8 +182,8 @@
             </el-select>
           </el-form-item>
           <el-divider content-position="left" style="margin-top: 20px">
-            <!-- <vab-icon icon="settings-3-line" /> -->
-            <i class="iconfont icon-settings--line"></i> 
+<!--            <vab-icon icon="settings-3-line" />-->
+            <i class="iconfont icon-settings--line"></i>
             {{ translateTitle('其它设置') }}
           </el-divider>
           <el-form-item :label="translateTitle('头部固定')">

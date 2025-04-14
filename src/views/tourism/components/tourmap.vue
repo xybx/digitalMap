@@ -20,7 +20,6 @@ import SpatialReference from '@arcgis/core/geometry/SpatialReference'
 import * as query from '@arcgis/core/rest/query'
 import Query from '@arcgis/core/rest/support/Query'
 import {getmapcenter} from '@/api/user'
-import {getServerurl} from "@/views/resident/api/resident";
 let app
 export default {
   name: 'mapvideo',
@@ -49,6 +48,7 @@ export default {
       this.dialogVisible =true
       this.creatmap();
     },
+    //获取乡村旅游服务地址
     async getTourServerurl(){
       var params={typeid:5}
       let serverdata = await getServerurl(params);
@@ -148,7 +148,7 @@ export default {
 
           //保存gis库:先删除在添加
           var featurelayer = new FeatureLayer({
-            url: app.$tourServerUrl,
+            url: app.tourServerUrl,
             outFields: ["*"]
           });
           //查询该户是否已存在景点位置数据，存在先删除
@@ -184,7 +184,7 @@ export default {
     //景点位置--入gis库
     inGisJDWZ(FeatureLayer,Graphic,pt,pid){
       var featurelayer = new FeatureLayer({
-        url: app.$tourServerUrl,
+        url: app.tourServerUrl,
         outFields: ["*"]
       });
       var attr = {

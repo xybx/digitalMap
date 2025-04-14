@@ -66,7 +66,7 @@
           <span>配置字段信息</span>
         </div>
         <el-divider></el-divider>
-        <el-form-item class="settings">
+        <el-form-item class="settings" prop="proaddressType">
           <el-input v-model="frestData.proaddressName" />
           <el-radio-group v-model="frestData.proaddressType" @change="proChange">
             <el-radio :label="0">填写形式</el-radio>
@@ -84,7 +84,7 @@
             <el-button v-if="index!=0" type="danger" icon="el-icon-minus" plain circle @click="delproData(item)"></el-button>
           </el-form-item>
         </div>
-        <el-form-item class="settings">
+        <el-form-item class="settings" prop="outaddressType">
           <el-input v-model="frestData.outaddressName" />
            <el-radio-group v-model="frestData.outaddressType" @change="outChange">
             <el-radio :label="0">填写形式</el-radio>
@@ -92,17 +92,16 @@
           </el-radio-group>
         </el-form-item>
         <div v-if="frestData.outaddressType == 1">
-          <div class="selecthead">
-            <span>选项名称</span>
+            <div class="selecthead">
+              <span>选项名称</span>
+            </div>
+            <el-form-item class="selectbody" v-for="(item,index) in frestData.outdicList" :key="index">
+              <i class="serialbox">{{index + 1}}</i>
+              <el-input v-model="item.valuetext" />
+              <el-button v-if="index==0" type="success" icon="el-icon-plus" plain circle @click="addoutData"></el-button>
+              <el-button v-if="index!=0" type="danger" icon="el-icon-minus" plain circle @click="deloutData(item)"></el-button>
+            </el-form-item>
           </div>
-          <el-form-item class="selectbody" v-for="(item,index) in frestData.outdicList" :key="index">
-            <i class="serialbox">{{index + 1}}</i>
-            <el-input v-model="item.valuetext" />
-            <el-button v-if="index==0" type="success" icon="el-icon-plus" plain circle @click="addoutData"></el-button>
-            <el-button v-if="index!=0" type="danger" icon="el-icon-minus" plain circle @click="deloutData(item)"></el-button>
-          </el-form-item>
-      </div>
-
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button v-if="keys !== 2" type="primary" size="-" @click="saveData">确 定</el-button>

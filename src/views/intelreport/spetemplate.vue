@@ -177,9 +177,10 @@ export default {
         }
       }
       let res = this.tabCard == 'moudle'?  await getSpemanageList(data) : await getSpemantaskList(data)
+      console.log(res)
       if(res.code == 200 && res.data){
-        this.tableData = this.tabCard == 'moudle' ? res.data.list : res.data.list.filter(item=> item.tasktype==2)
-        this.total = this.tabCard == 'moudle' ?  res.data.total : res.data.list.filter(item=> item.tasktype==2).length
+        this.tableData = res.data.list
+        this.total = res.data.total
       }else {
         this.tableData = []
       }

@@ -2,22 +2,22 @@
   <ul v-if="theme.showThemeSetting" class="vab-theme-setting">
     <li @click="handleOpenTheme">
       <a>
-        <!-- <vab-icon icon="brush-2-line" /> -->
-        <i class="iconfont icon-brush--line"></i> 
+<!--        <vab-icon icon="brush-2-line" />-->
+        <i class="iconfont icon-brush--line"></i>
         <p>{{ translateTitle('主题配置') }}</p>
       </a>
     </li>
     <li @click="randomTheme">
       <a>
-        <!-- <vab-icon icon="apps-line" /> -->
-        <i class="iconfont icon-apps-line"></i> 
+<!--        <vab-icon icon="apps-line" />-->
+        <i class="iconfont icon-apps-line"></i>
         <p>{{ translateTitle('随机换肤') }}</p>
       </a>
     </li>
     <li @click="removeLocalStorage">
       <a>
-        <!-- <vab-icon icon="delete-bin-4-line" /> -->
-        <i class="iconfont icon-delete-bin--line"></i> 
+<!--        <vab-icon icon="delete-bin-4-line" />-->
+        <i class="iconfont icon-delete-bin--line"></i>
         <p>
           {{ translateTitle('清理缓存') }}
         </p>

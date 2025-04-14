@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import MapImageLayer from '@arcgis/core/layers/MapImageLayer'
-import Basemap from '@arcgis/core/Basemap'
-import Map from '@arcgis/core/Map'
-import MapView from '@arcgis/core/views/MapView'
-import WebTileLayer from '@arcgis/core/layers/WebTileLayer'
-import Point from '@arcgis/core/geometry/Point'
-import Graphic from '@arcgis/core/Graphic'
+  import MapImageLayer from '@arcgis/core/layers/MapImageLayer'
+  import Basemap from '@arcgis/core/Basemap'
+  import Map from '@arcgis/core/Map'
+  import MapView from '@arcgis/core/views/MapView'
+  import WebTileLayer from '@arcgis/core/layers/WebTileLayer'
+  import Point from '@arcgis/core/geometry/Point'
+  import Graphic from '@arcgis/core/Graphic'
 import { getmapcenter } from '@/api/user'
 let app
 export default {
@@ -48,100 +48,100 @@ export default {
       this.dialogVisible = false
       this.title = ''
     },
-    async  creatmap() {
-      //获取中心点位置
-      let center_res = await getmapcenter()
-      var mapcenter = center_res.data
-      if (mapcenter == null) {
-        mapcenter = [117.872534, 36.557672]
-      } else {
-        var centerpoint = new Array()
-        centerpoint.push(mapcenter.split(',')[0])
-        centerpoint.push(mapcenter.split(',')[1])
-        mapcenter = centerpoint
-      }
+  async  creatmap() {
+          //获取中心点位置
+          let center_res = await getmapcenter()
+          var mapcenter = center_res.data
+          if (mapcenter == null) {
+            mapcenter = [117.872534, 36.557672]
+          } else {
+            var centerpoint = new Array()
+            centerpoint.push(mapcenter.split(',')[0])
+            centerpoint.push(mapcenter.split(',')[1])
+            mapcenter = centerpoint
+          }
 
-      var tk = 'a6798a0c841004f84487f874a146cba6'
-      var vec_w = new WebTileLayer({
-        urlTemplate:
-          'http://{subDomain}.tianditu.gov.cn/DataServer?T=vec_w&x={col}&y={row}&l={level}&' +
-          '&tk=' +
-          tk,
-        subDomains: ['t0', 't1', 't2', 't3', 't4', 't5', 't6', 't7'],
-        id: 'vec_w',
-      })
-
-      var cva_w = new WebTileLayer({
-        urlTemplate:
-          'http://{subDomain}.tianditu.gov.cn/DataServer?T=cva_w&x={col}&y={row}&l={level}&' +
-          '&tk=' +
-          tk,
-        subDomains: ['t0', 't1', 't2', 't3', 't4', 't5', 't6', 't7'],
-        id: 'cva_w',
-      })
-
-      var basemap = new Basemap({
-        baseLayers: [vec_w, cva_w],
-      })
-
-      var map = new Map({
-        basemap: basemap,
-        // layers: [vec_w, cva_w],
-      })
-
-      var view = new MapView({
-        container: 'map',
-        map: map,
-        center: mapcenter,
-        zoom: 16,
-      })
-
-      view.ui._removeComponents(['attribution']) //去掉logo
-
-      view.on('click', function (evt) {
-        view.graphics.removeAll()
-
-        var pt = new Point({
-          x: evt.mapPoint.longitude,
-          y: evt.mapPoint.latitude,
-        })
-        var graphic = new Graphic({
-          geometry: pt,
-          symbol: {
-            type: 'picture-marker', // autocasts as new PictureMarkerSymbol()
-            url:require("@/assets/vMarker.png"),
-            width: '28px',
-            height: '38px',
-          },
-        })
-        view.graphics.add(graphic)
-        var ptarr = new Array()
-        ptarr.push(evt.mapPoint.longitude)
-        ptarr.push(evt.mapPoint.latitude)
-        app.locationpoint = ptarr
-      })
-      view.when(function () {
-        //如果经纬度存在，直接进行定位
-        let lng = app.coordinate?.split(',')[0]
-        let lat = app.coordinate?.split(',')[1]
-        if (lng && lat) {
-          var pt = new Point({
-            x: lng,
-            y: lat,
+          var tk = 'a6798a0c841004f84487f874a146cba6'
+          var vec_w = new WebTileLayer({
+            urlTemplate:
+              'http://{subDomain}.tianditu.gov.cn/DataServer?T=img_w&x={col}&y={row}&l={level}&' +
+              '&tk=' +
+              tk,
+            subDomains: ['t0', 't1', 't2', 't3', 't4', 't5', 't6', 't7'],
+            id: 'vec_w',
           })
-          var graphic = new Graphic({
-            geometry: pt,
-            symbol: {
-              type: 'picture-marker', // autocasts as new PictureMarkerSymbol()
-              url: require('@/assets/vMarker.png'),
-              width: '28px',
-              height: '38px',
-            },
+
+          var cva_w = new WebTileLayer({
+            urlTemplate:
+              'http://{subDomain}.tianditu.gov.cn/DataServer?T=cva_w&x={col}&y={row}&l={level}&' +
+              '&tk=' +
+              tk,
+            subDomains: ['t0', 't1', 't2', 't3', 't4', 't5', 't6', 't7'],
+            id: 'cva_w',
           })
-          view.graphics.add(graphic)
-          view.center = [lng, lat]
-        }
-      })
+
+          var basemap = new Basemap({
+            baseLayers: [vec_w, cva_w],
+          })
+
+          var map = new Map({
+            basemap: basemap,
+            // layers: [vec_w, cva_w],
+          })
+
+          var view = new MapView({
+            container: 'map',
+            map: map,
+            center: mapcenter,
+            zoom: 16,
+          })
+
+          view.ui._removeComponents(['attribution']) //去掉logo
+
+          view.on('click', function (evt) {
+            view.graphics.removeAll()
+
+            var pt = new Point({
+              x: evt.mapPoint.longitude,
+              y: evt.mapPoint.latitude,
+            })
+            var graphic = new Graphic({
+              geometry: pt,
+              symbol: {
+                type: 'picture-marker', // autocasts as new PictureMarkerSymbol()
+                url:require("@/assets/vMarker.png"),
+                width: '28px',
+                height: '38px',
+              },
+            })
+            view.graphics.add(graphic)
+            var ptarr = new Array()
+            ptarr.push(evt.mapPoint.longitude)
+            ptarr.push(evt.mapPoint.latitude)
+            app.locationpoint = ptarr
+          })
+          view.when(function () {
+            //如果经纬度存在，直接进行定位
+            let lng = app.coordinate?.split(',')[0]
+            let lat = app.coordinate?.split(',')[1]
+            if (lng && lat) {
+              var pt = new Point({
+                x: lng,
+                y: lat,
+              })
+              var graphic = new Graphic({
+                geometry: pt,
+                symbol: {
+                  type: 'picture-marker', // autocasts as new PictureMarkerSymbol()
+                  url: require('@/assets/vMarker.png'),
+                  width: '28px',
+                  height: '38px',
+                },
+              })
+              view.graphics.add(graphic)
+              view.center = [lng, lat]
+            }
+          })
     },
   },
 }

@@ -48,15 +48,15 @@
   </div>
 </template>
 <script>
+import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
+import Query from '@arcgis/core/rest/support/Query'
+import * as query from '@arcgis/core/rest/query'
+import Graphic from '@arcgis/core/Graphic'
 import queryForm from "@/views/environment/components/queryForm";
 import {getmyselfList, getrevoke} from "./api/environment";
 import envdialog from "@/views/environment/components/envdialog";
 import {mapGetters} from "vuex";
 import {getServerurl} from "@/views/resident/api/resident";
-import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
-import Query from '@arcgis/core/rest/support/Query'
-import * as query from '@arcgis/core/rest/query'
-import Graphic from '@arcgis/core/Graphic'
 let app;
 export default {
   name: "myself",
@@ -119,10 +119,10 @@ export default {
     tabRow(row, column, event){
       this.lookClick(row.pid)
     },
-    async DeletePointSDE(id, typeid) {
-      var ret = false
-      let serverdata = await getServerurl({ typeid: typeid })
-      var featureurl = serverdata.data.replace('MapServer', 'FeatureServer')
+    async DeletePointSDE(id,typeid) {
+      var ret = false;
+      let serverdata = await getServerurl({typeid:typeid});
+      var featureurl = serverdata.data.replace("MapServer", "FeatureServer");
       var featurelayer1 = new FeatureLayer({
         url: featureurl,
         outFields: ["*"]

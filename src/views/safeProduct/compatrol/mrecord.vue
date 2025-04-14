@@ -66,14 +66,14 @@
 </template>
 
 <script>
-import queryForm from "./components/queryForm"
-import {getMylist, getRevoke} from './api/patrol'
-import {mapGetters} from "vuex";
-import {getServerurl} from "@/views/resident/api/resident";
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
 import Query from '@arcgis/core/rest/support/Query'
 import * as query from '@arcgis/core/rest/query'
 import Graphic from '@arcgis/core/Graphic'
+import queryForm from "./components/queryForm"
+import {getMylist, getRevoke} from './api/patrol'
+import {mapGetters} from "vuex";
+import {getServerurl} from "@/views/resident/api/resident";
 let app;
 export default {
   name: "mrecord",
@@ -147,7 +147,7 @@ export default {
     tabRow(row, column, event){
       this.lookClick(row.pid)
     },
-    async DeletePointSDE(id,typeid) {
+   async DeletePointSDE(id,typeid) {
       var ret = false;
       let serverdata = await getServerurl({typeid:typeid});
       var featureurl = serverdata.data.replace("MapServer", "FeatureServer");

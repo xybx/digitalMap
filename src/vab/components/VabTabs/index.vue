@@ -9,12 +9,20 @@
       class="vab-tabs-content"
       type="card"
       @tab-click="handleTabClick"
-      @tab-remove="handleTabRemove">
-      <el-tab-pane v-for="item in visitedRoutes" v-if="item.showMenuIndex == showMenuIndex" :key="item.path" :closable="!isNoClosable(item)" :name="item.path">
+      @tab-remove="handleTabRemove"
+    >
+      <el-tab-pane
+        v-for="item in visitedRoutes"
+        v-if="item.showMenuIndex == showMenuIndex"
+        :key="item.path"
+        :closable="!isNoClosable(item)"
+        :name="item.path"
+      >
         <span
           slot="label"
           style="display: inline-block"
-          @contextmenu.prevent="openMenu($event, item)">
+          @contextmenu.prevent="openMenu($event, item)"
+        >
           <!--
           <template v-if="theme.showTabsBarIcon">
             <vab-icon v-if="item.meta && item.meta.icon" :icon="item.meta.icon" :is-custom-svg="item.meta.isCustomSvg"/>
@@ -35,7 +43,7 @@
       <template #dropdown>
         <el-dropdown-menu class="tabs-more">
           <el-dropdown-item command="closeOthersTabs">
-            <!-- <vab-icon icon="close-line" /> -->
+<!--            <vab-icon icon="close-line" />-->
             <i class="iconfont icon-close-line"></i>
             <span>
               {{ translateTitle('关闭其他') }}
@@ -44,18 +52,20 @@
           <!--
           <el-dropdown-item command="closeLeftTabs">
             <vab-icon icon="arrow-left-line" />
+            <i class="iconfont icon-close-line"></i>
             <span>
               {{ translateTitle('关闭左侧') }}
             </span>
           </el-dropdown-item>
           <el-dropdown-item command="closeRightTabs">
             <vab-icon icon="arrow-right-line" />
+            <i class="iconfont icon-close-line"></i>
             <span>
               {{ translateTitle('关闭右侧') }}
             </span>
           </el-dropdown-item>-->
           <el-dropdown-item command="closeAllTabs">
-            <!-- <vab-icon icon="close-line" /> -->
+<!--            <vab-icon icon="close-line" />-->
             <i class="iconfont icon-close-line"></i>
             <span>
               {{ translateTitle('关闭全部') }}
@@ -74,7 +84,7 @@
         class="el-dropdown-menu__item"
         @click="closeOthersTabs"
       >
-        <!-- <vab-icon icon="close-line" /> -->
+<!--        <vab-icon icon="close-line" />-->
         <i class="iconfont icon-close-line"></i>
         <span>{{ translateTitle('关闭其他') }}</span>
       </li>
@@ -85,6 +95,7 @@
         @click="closeLeftTabs"
       >
         <vab-icon icon="arrow-left-line" />
+        <i class="iconfont icon-close-line"></i>
         <span>{{ translateTitle('关闭左侧') }}</span>
       </li>
       <li
@@ -96,10 +107,11 @@
         @click="closeRightTabs"
       >
         <vab-icon icon="arrow-right-line" />
+        <i class="iconfont icon-close-line"></i>
         <span>{{ translateTitle('关闭右侧') }}</span>
       </li> -->
       <li class="el-dropdown-menu__item" @click="closeAllTabs">
-        <!-- <vab-icon icon="close-line" /> -->
+<!--        <vab-icon icon="close-line" />-->
         <i class="iconfont icon-close-line"></i>
         <span>{{ translateTitle('关闭全部') }}</span>
       </li>

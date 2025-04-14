@@ -9,7 +9,7 @@
           </div>
           <div class="text item">
             <ul class="cardlist">
-              <li v-for="(item,index) in listData" :key="index" @click="cardClick(index)">
+              <li v-for="(item,index) in listData" @click="cardClick(index)">
                 <span>{{item.name}}</span>
                 <i>{{item.value}}</i>
               </li>

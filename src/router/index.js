@@ -677,6 +677,20 @@ export const asyncRoutes = [
   //         showMenuIndex: 50,
   //       }]
   //   },
+  //   {
+  //       path: '/rcode',
+  //       name: 'Rcode',
+  //       component: VabComLayout,
+  //       redirect: '/rcode',
+  //       showMenuIndex: 60,
+  //       children: [{
+  //           path: '/rcode',
+  //           name: 'Rcode',
+  //           component: () => import ('@/views/rashcode/rcode'),
+  //           meta: { title: '鲁通码管理', icon: 'icon iconfont icon-xuncha-shise' },
+  //           showMenuIndex: 60,
+  //       }]
+  //   },
     // {
     //   path: '/drule',
     //   name: 'Drule',
@@ -691,80 +705,6 @@ export const asyncRoutes = [
     //     showMenuIndex:41,
     //   }]
     // },
-  // {
-  //       path: '/rcode',
-  //       name: 'Rcode',
-  //       component: VabComLayout,
-  //       redirect: '/rcode',
-  //       showMenuIndex: 60,
-  //       children: [{
-  //           path: '/rcode',
-  //           name: 'Rcode',
-  //           component: () => import ('@/views/rashcode/rcode'),
-  //           meta: { title: '鲁通码景区核验', icon: 'icon iconfont icon-suoshuxiangcun' },
-  //           showMenuIndex: 60,
-  //       }]
-  //   },
-  // {
-  //       path: '/canteen',
-  //       name: 'Canteen',
-  //       component: VabComLayout,
-  //       redirect: '/talent',
-  //       showMenuIndex: 60,
-  //       children: [{
-  //           path: '/canteen',
-  //           name: 'Canteens',
-  //           component: () => import ('@/views/rashcode/canteen'),
-  //           meta: { title: '机关食堂', icon: 'icon iconfont icon-xuncha-shise' },
-  //           showMenuIndex: 60,
-  //       }]
-  //   },
-  // {
-  //       path: '/ruleage',
-  //       name: 'Ruleage',
-  //       component: VabComLayout,
-  //       redirect: '/ruleage',
-  //       showMenuIndex: 60,
-  //       children: [{
-  //           path: '/ruleage',
-  //           name: 'Ruleages',
-  //           component: () => import ('@/views/rashcode/ruleage'),
-  //           meta: { title: '数据规则', icon: 'icon iconfont icon-xuncha-shise' },
-  //           showMenuIndex: 60,
-  //       }]
-  //   },
-  // {
-  //       path: '/talentage',
-  //       name: 'Talentage',
-  //       component: VabComLayout,
-  //       redirect: '/talent',
-  //       hidden:true,
-  //       showMenuIndex: 60,
-  //       children: [{
-  //           path: '/talentage',
-  //           name: 'Talentages',
-  //           component: () => import ('@/views/rashcode/talentage'),
-  //           meta: { title: '颜小青人员数据',},
-  //           hidden:true,
-  //           showMenuIndex: 60,
-  //       }]
-  //   },
-  //   {
-  //       path: '/canteenage',
-  //       name: 'Canteenage',
-  //       component: VabComLayout,
-  //       redirect: '/canteenage',
-  //       hidden:true,
-  //       showMenuIndex: 60,
-  //       children: [{
-  //           path: '/canteenage',
-  //           name: 'Canteenages',
-  //           component: () => import ('@/views/rashcode/canteenage'),
-  //           meta: { title: '行政审批局人员数据', },
-  //           hidden:true,
-  //           showMenuIndex: 60,
-  //       }]
-  //   },
     //   {
     //       path: '/news',
     //       name: 'News',
@@ -1414,20 +1354,6 @@ export const asyncRoutes = [
   //           component: () => import ('@/views/kindern/kindern'),
   //           meta: { title: '幼儿园招生', icon: 'iconfont icon-youeryuan' },
   //           showMenuIndex: 36,
-  //       }]
-  //   },
-  //   {
-  //       path: '/educate',
-  //       name: 'Educate',
-  //       component: Layout,
-  //       redirect: '/educate',
-  //       showMenuIndex: 38,
-  //       children: [{
-  //           path: '/educate',
-  //           name: 'Educates',
-  //           component: () => import ('@/views/educate/educate'),
-  //           meta: { title: '中小学报名', icon: 'iconfont icon-youeryuan' },
-  //           showMenuIndex: 38,
   //       }]
   //   },
   //   {

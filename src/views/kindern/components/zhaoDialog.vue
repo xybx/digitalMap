@@ -31,11 +31,11 @@
       <el-form-item label="移动端首页报名阶段说明:" prop="contentone">
         <quill-editor v-model="frestData.contentone" ref="myQuillEditor" class="editor" :options="editorOption" style="width:45vmax;" :disabled="disabled" ></quill-editor>
       </el-form-item>
-<!--      <el-form-item label="军官证提交时间:" prop="contenttwo">-->
-<!--        <el-date-picker style="width:14vmax" v-model="frestData.contenttwo"  :clearable="false" type="date" format="yyyy年MM月dd日"-->
-<!--          value-format="yyyy年MM月dd日"  placeholder="开始时间" @change="handlestart"-->
-<!--          :disabled="disabled" />-->
-<!--        </el-form-item>-->
+      <el-form-item label="军官证提交时间:" prop="contenttwo">
+        <el-date-picker style="width:14vmax" v-model="frestData.contenttwo"  :clearable="false" type="date" format="yyyy年MM月dd日"
+          value-format="yyyy年MM月dd日"  placeholder="开始时间" @change="handlestart"
+          :disabled="disabled" />
+        </el-form-item>
       <el-form-item label="公办幼儿园招生计划(人):" class="fl">
         <el-form-item class="sz" :label=gl.schoolname v-for="(gl, index) in frestData.gschools" :key="gl.pid">
           <el-input v-model="gl.enrollsum" placeholder="请输入" :disabled="disabled" style="width:6vmax;" />
@@ -99,9 +99,9 @@ export default {
         contentone:[
           { required: true, trigger: 'change', message: '请输入阶段说明' },
         ],
-        // contenttwo:[
-        //   { required: true, trigger: 'change', message: '请选择时间' },
-        // ],
+        contenttwo:[
+          { required: true, trigger: 'change', message: '请选择时间' },
+        ],
       },
       editorOption: {
         theme: "snow",

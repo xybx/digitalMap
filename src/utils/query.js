@@ -1,4 +1,4 @@
-import { getEncryptToBase64 as encrypt, getDecryptByBase64 as decrypt } from "./encryption"
+import { getEncryptToBase64 as encrypt, getDecryptByBase64 as decrypt } from "./routersencry"
 const encodeReserveRE = /[!'()*]/g
 const encodeReserveReplacer = c => '%' + c.charCodeAt(0).toString(16)
 const commaRE = /%2C/g

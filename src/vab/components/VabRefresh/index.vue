@@ -1,9 +1,4 @@
 <template>
-  <!-- <vab-icon
-    v-if="theme.showRefresh"
-    icon="refresh-line"
-    @click="refreshRoute"
-  /> -->
   <i v-if="theme.showRefresh" class="el-icon-refresh" @click="refreshRoute"></i>
 </template>
 

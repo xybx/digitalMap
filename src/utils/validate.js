@@ -205,11 +205,6 @@ export function isJson(value) {
   }
   return false
 }
-/**
- * @description 比较两个对象是否一致
- * @param value
- * @returns {boolean}
- */
 export function compareObj (obj1, obj2){
   // 是否是对象
   if(typeof obj1 !== 'object' || typeof obj2 !== 'object') {

@@ -103,8 +103,8 @@ import {getComyVill,getComyCate,getComySave,deletecomfile,getqyFeature} from './
 import { mapActions, mapGetters } from 'vuex'
 import { handleActivePath } from '@/utils/routes'
 import Point from '@arcgis/core/geometry/Point'
-import Graphic from '@arcgis/core/Graphic'
-import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
+  import Graphic from '@arcgis/core/Graphic'
+  import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
 let app
 export default {
   name: "padd",
@@ -273,61 +273,61 @@ export default {
       this.$refs.formdata = this.$options.data().formdata
     },
 //保存sde
-    async savesde(obj) {
+   async savesde(obj) {
       //获取编辑企业的feature服务地址
-      var res = await getqyFeature()
-      var url = ''
-      if (res.code == 200) {
-        url = res.data
-      }
-
-      var featurelayer = new FeatureLayer({
-        //url: qyFeatureServer,
-        url: url,
-        outFields: ['*'],
-      })
-      var attr = {
-        qyid: obj.pid,
-        name: obj.name,
-        qydz: obj.address,
-        clsj: obj.founddata,
-        zczb: obj.zcmoney,
-        bgdh: obj.telphone,
-        qyfzr: obj.mainperson,
-        fzrdh: obj.mainpersonmobile,
-        qylx: obj.typeid,
-        aqfzr: obj.safeperson,
-        aqfzrdh: obj.safepersonmobile,
-        scjycp: obj.production,
-        zgrs: 0,
-        bz: '',
-        tyxydm: obj.cardno,
-        sfyzdwry: obj.ishavedanger,
-        sscz: obj.community,
-      } //JSON.stringify(lnglats)
-      var point = {
-        type: 'point',
-        longitude: obj.locationx,
-        latitude: obj.locationy,
-      }
-      var g = new Graphic({
-        geometry: point,
-        symbol: {
-          type: 'simple-marker',
-          color: 'white',
-          width: 2,
-        },
-        attributes: attr,
-      })
-      featurelayer
-        .applyEdits({
-          addFeatures: [g],
-        })
-        .then(function (result) {
-          if (result.addFeatureResults.length > 0) {
-            console.log('sde入库成功')
+          var res = await getqyFeature()
+          var url = ''
+          if (res.code == 200) {
+            url = res.data
           }
-        })
+
+          var featurelayer = new FeatureLayer({
+            //url: qyFeatureServer,
+            url: url,
+            outFields: ['*'],
+          })
+          var attr = {
+            qyid: obj.pid,
+            name: obj.name,
+            qydz: obj.address,
+            clsj: obj.founddata,
+            zczb: obj.zcmoney,
+            bgdh: obj.telphone,
+            qyfzr: obj.mainperson,
+            fzrdh: obj.mainpersonmobile,
+            qylx: obj.typeid,
+            aqfzr: obj.safeperson,
+            aqfzrdh: obj.safepersonmobile,
+            scjycp: obj.production,
+            zgrs: 0,
+            bz: '',
+            tyxydm: obj.cardno,
+            sfyzdwry: obj.ishavedanger,
+            sscz: obj.community,
+          } //JSON.stringify(lnglats)
+          var point = {
+            type: 'point',
+            longitude: obj.locationx,
+            latitude: obj.locationy,
+          }
+          var g = new Graphic({
+            geometry: point,
+            symbol: {
+              type: 'simple-marker',
+              color: 'white',
+              width: 2,
+            },
+            attributes: attr,
+          })
+          featurelayer
+            .applyEdits({
+              addFeatures: [g],
+            })
+            .then(function (result) {
+              if (result.addFeatureResults.length > 0) {
+                console.log('sde入库成功')
+              }
+            })
     },
   }
 }

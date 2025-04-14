@@ -2,7 +2,6 @@
   <el-badge v-if="theme.showNotice" :value="badge">
     <el-popover placement="bottom" trigger="hover" width="300">
       <template #reference>
-        <!-- <vab-icon icon="notification-line" /> -->
         <i class="iconfont icon-notification"></i>
       </template>
       <el-tabs v-model="activeName" @tab-click="handleClick">
@@ -33,7 +32,7 @@
       </el-tabs>
       <div class="notice-clear" @click="handleClearNotice">
         <el-button type="text">
-          <!-- <vab-icon icon="close-circle-line" /> -->
+<!--          <vab-icon icon="close-circle-line" />-->
           <i class="el-icon-close-notification"></i>
           <span>{{ translateTitle('清空消息') }}</span>
         </el-button>

@@ -9,7 +9,6 @@
 <template>
   <footer class="vab-footer">
     Copyright
-    <!-- <vab-icon icon="copyright-line" /> -->
     <i class="iconfont icon-copyright"></i>
     {{ title }} {{ fullYear }}
   </footer>

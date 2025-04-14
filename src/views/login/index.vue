@@ -46,23 +46,12 @@
               tabindex="2"
             >
               <template #prefix>
-                <!-- <vab-icon icon="lock-line" /> -->
                 <i class="iconfont icon-lock-line"></i>
               </template>
               <template v-if="passwordType === 'password'" #suffix>
-                <!-- <vab-icon
-                  class="show-password"
-                  icon="eye-off-line"
-                  @click="handlePassword"
-                /> -->
                 <i class="iconfont icon-eye-off-line show-password" @click="handlePassword"></i>
               </template>
               <template v-else #suffix>
-                <!-- <vab-icon
-                  class="show-password"
-                  icon="eye-line"
-                  @click="handlePassword"
-                /> -->
                 <i class="iconfont icon-eye-line show-password" @click="handlePassword"></i>
               </template>
             </el-input>

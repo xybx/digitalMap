@@ -14,7 +14,7 @@
         <i></i>
         <span>专题专项任务模块入口</span>
       </div>
-      <div class="text item">
+      <div class="text item" v-loading="fullscreenLoading">
         <ul class="mlist" v-if="moudleData.length > 0">
           <li v-for="item in moudleData" @click="moudleClick(item.pid,item.moduletype)">
             <el-badge :value="item.dbcount" :max="99" class="item">

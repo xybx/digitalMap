@@ -16,12 +16,6 @@
               :name="item.name"
             >
               <template #label>
-                <!-- <vab-icon
-                  v-if="item.meta.icon"
-                  :icon="item.meta.icon"
-                  :is-custom-svg="item.meta.isCustomSvg"
-                  style="min-width: 16px"
-                /> -->
                 <i v-if="item.meta.icon" :class="item.meta.icon" style="min-width: 16px"></i>
                 {{ translateTitle(item.meta.title) }}
               </template>

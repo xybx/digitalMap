@@ -133,7 +133,7 @@ export default {
 
 <style lang="scss">
 .you{
-  //height:50% !important;
+  height:50% !important;
   .el-input--small{
   width:80%
 }

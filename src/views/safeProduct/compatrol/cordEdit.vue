@@ -63,7 +63,7 @@
                   <span>{{ item.examidea ? item.examidea: '暂无办理意见' }}</span>
                   <el-image v-if='item.examimg && item.examimg.length >0' v-for='(val,key) in item.examimg' :key='key' :src='val' :preview-src-list="item.examimg" :z-index="2999"></el-image>
                 </div>
-                <span class="nextman" v-if="item.nextusername != ''"><label>下阶段办理人:</label>{{item.nextusername}}</span>
+                <span class="nextman" v-if="item.nextusername!= ''"><label>下阶段办理人:</label>{{item.nextusername}}</span>
               </el-timeline-item>
             </el-timeline>
             <template v-else>
@@ -94,6 +94,10 @@
 </template>
 
 <script>
+import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
+import Query from '@arcgis/core/rest/support/Query'
+import * as query from '@arcgis/core/rest/query'
+import Graphic from '@arcgis/core/Graphic'
 import dealdialog from './components/dealdialog'
 import transferdialog from "./components/transferdialog";
 import rejectdialog from "./components/rejectdialog";
@@ -102,10 +106,6 @@ import {getpatrolTail, getIdea, getFinish,getRevoke} from './api/patrol'
 import {mapActions, mapGetters} from "vuex";
 import {handleActivePath} from "@/utils/routes";
 import {getServerurl} from "@/views/resident/api/resident";
-import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
-import Query from '@arcgis/core/rest/support/Query'
-import * as query from '@arcgis/core/rest/query'
-import Graphic from '@arcgis/core/Graphic'
 let app;
 export default {
   name: "cordEdit",
@@ -229,7 +229,7 @@ export default {
             examimg:item.examimg ? item.examimg.split(',').map(val=>{return `${this.$baseUrl}/gridfs/image/${val}`}) : '',
             statue:item.statue,
             statuename:item.statuename,
-            nextusername: item.nextstatue && item.nextstatue !==0 ? item.nextusername : ''
+            nextusername:item.nextstatue && item.nextstatue != 0 ? item.nextusername : ''
           }
         })
       }else {
@@ -272,7 +272,7 @@ export default {
     reClick(pid){
       this.$refs.reject.showreject(pid)
     },
-    async DeletePointSDE(id,typeid) {
+   async DeletePointSDE(id,typeid) {
       var ret = false;
       let serverdata = await getServerurl({typeid:typeid});
       var featureurl = serverdata.data.replace("MapServer", "FeatureServer");
@@ -487,13 +487,13 @@ export default {
                         }
                       }
                       .nextman{
-                        width:100%;
-                        margin-top:15px;
+                        width: 100%;
+                        margin-top: 15px;
                         color: #666;
                         display: block;
                         label{
-                          font-weight: bold;
                           color: #333;
+                          font-weight:bold;
                         }
                       }
                     }

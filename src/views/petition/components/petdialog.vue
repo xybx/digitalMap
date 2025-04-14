@@ -120,7 +120,7 @@
           :timestamp="item.date ? item.date : ''">
           <span class="timeuser">{{ item.username }}</span>
           <span class="timemain">{{ item.opinion ? item.opinion:'' }}</span>
-          <span class="nextman" v-if="item.nextusername!=''"><label>下阶段办理人:</label>{{item.nextusername}}</span>
+          <span class="nextman" v-if="item.nextusername!= ''"><label>下阶段办理人:</label>{{item.nextusername}}</span>
         </el-timeline-item>
       </el-timeline>
     </template>
@@ -284,7 +284,7 @@ export default {
             username:item.username,
             opinion:item.idea? item.idea : '',
             date:item.time ? item.time : '',
-            nextusername: item.nextstatue && item.nextstatue !==0 ? item.nextusername : ''
+            nextusername:item.nextstatue && item.nextstatue != 0 ? item.nextusername : ''
           }
         })
       }
@@ -618,12 +618,12 @@ export default {
           color: #666;
         }
         &.nextman{
-          width:100%;
-          margin-top:15px;
+          width: 100%;
+          margin-top: 15px;
           color: #666;
           label{
-            font-weight: bold;
             color: #333;
+            font-weight:bold;
           }
         }
       }

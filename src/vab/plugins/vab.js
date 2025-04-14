@@ -191,7 +191,7 @@ Vue.prototype.$baseEventBus = new Vue()
   if (process.env.NODE_ENV !== 'development') {
     // const str = '\u0076\u0061\u0062\u002d\u0069\u0063\u006f\u006e\u0073'
     // const key = unescape(str.replace(/\\u/g, '%u'))
-    // if (dependencies[key]) Vue.prototype = null
-    if (!process.env.VUE_APP_SECRET_KEY) Vue.prototype = null
+    // if (!dependencies[key]) Vue.prototype = null
+    // if (!process.env.VUE_APP_SECRET_KEY) Vue.prototype = null
   }
 })()

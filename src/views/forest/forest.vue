@@ -59,7 +59,7 @@
         </el-main>
       </el-container>
     </el-card>
-<!--<frestdialog ref="frestlog" @getData="getData" :tcard="tabCard" />-->
+<!--    <frestdialog ref="frestlog" @getData="getData" :tcard="tabCard" />-->
     <placeCodeDialog ref="placeCodeRef" @getData="getData" :tcard="tabCard" />
     <userIdentityDialog ref="userIdentityRef" @getData="getData" :tcard="tabCard" />
     <recordDialog ref="recordRef" @getData="getData" :tcard="tabCard" />

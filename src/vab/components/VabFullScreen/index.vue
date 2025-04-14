@@ -1,9 +1,4 @@
 <template>
-  <!-- <vab-icon
-    v-if="theme.showFullScreen"
-    :icon="isFullscreen ? 'fullscreen-exit-fill' : 'fullscreen-fill'"
-    @click="click"
-  /> -->
   <i v-if="theme.showFullScreen" class="iconfont" :class="isFullscreen ? 'icon-exit-fullscreen': 'icon-fullscreen'" @click="click"></i>
 </template>
 

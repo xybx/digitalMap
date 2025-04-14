@@ -1,26 +1,19 @@
 <template>
   <el-dropdown @command="handleCommand" @visible-change="handleVisibleChange">
     <span class="avatar-dropdown">
-    <!--<el-avatar :src="avatar" class="user-avatar" />-->
+      <!--<el-avatar :src="avatar" class="user-avatar" />-->
       <div class="user-name">
         <span class="hidden-xs-only">欢迎您,{{ username }}</span>
-        <!-- <vab-icon
-          :class="{ 'vab-dropdown-active': active }"
-          class="vab-dropdown"
-          icon="arrow-down-s-line"
-        /> -->
         <i :class="active? 'el-icon-arrow-up':'el-icon-arrow-down'"></i>
       </div>
     </span>
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="editPass">
-          <!-- <vab-icon icon="edit-2-line" /> -->
           <i class="el-icon-lock"></i>
           {{ translateTitle('修改密码') }}
         </el-dropdown-item>
         <el-dropdown-item command="logout">
-          <!-- <vab-icon icon="logout-circle-r-line" /> -->
           <i class="el-icon-switch-button"></i>
           {{ translateTitle('退出登录') }}
         </el-dropdown-item>

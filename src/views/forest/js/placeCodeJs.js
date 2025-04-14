@@ -184,15 +184,6 @@ export default {
       }) : []
     },
     async showEdit(pid,index){
-      if (index !== 2) {
-        await this.getVillageByLevel();
-        if (this.level == 2) {
-          await this.getCountryByLevel();
-        }
-        await this.getPlaceTypeList();
-        await this.getPlaceTypeVageList()
-        await this.getPlaceCodeUserList()
-      }
       this.keys = index ? index : null
       let trr = [{tname:'新增',mname:'新增类别',kname:'新增事项'},{tname:'查看',cname:'生成二维码',hname:'查看人员身份码',mname:'查看类别',kname:'查看事项'},{tname:'编辑',mname:'编辑类别',kname:'编辑事项'}]
       this.title = this.tcard == 'codefth' ? trr[index-1].mname : this.tcard == 'codevth' ? trr[index-1].kname: this.tcard == 'codest' && index == 2 ? trr[index-1].cname : this.tcard == 'codend' && index == 2 ? trr[index-1].hname : trr[index-1].tname
@@ -204,6 +195,15 @@ export default {
         this.frestData.outdicList = !res.data.outdicList || res.data.outdicList.length == 0 ? this.$options.data().frestData.outdicList : res.data.outdicList
         this.frestData.proaddressName = !res.data.proaddressName || res.data.proaddressName == '' ? '来访者单位': res.data.proaddressName
         this.frestData.outaddressName = !res.data.outaddressName || res.data.outaddressName == '' ? '受访者单位': res.data.outaddressName
+      }
+      if (index !== 2) {
+         this.getVillageByLevel();
+        if(this.level == 2) {
+           this.getCountryByLevel();
+        }
+         this.getPlaceTypeList();
+         this.getPlaceTypeVageList()
+         this.getPlaceCodeUserList()
       }
       if (index == 2) {
         queryQrCode({pid: pid, type: 0}).then(res => {

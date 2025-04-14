@@ -62,14 +62,14 @@
   </div>
 </template>
 <script>
-import queryForm from "./components/queryForm";
-import {getComyList,deleteComy} from './api/company'
-import {mapGetters} from "vuex";
-import {getServerurl} from "@/views/resident/api/resident";
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer'
 import Query from '@arcgis/core/rest/support/Query'
 import * as query from '@arcgis/core/rest/query'
 import Graphic from '@arcgis/core/Graphic'
+import queryForm from "./components/queryForm";
+import {getComyList,deleteComy} from './api/company'
+import {mapGetters} from "vuex";
+import {getServerurl} from "@/views/resident/api/resident";
 let app;
 export default {
   name: "pindex",

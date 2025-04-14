@@ -273,97 +273,97 @@ export default {
       if (res.code == 200) {
         url = res.data;
       }
-      //var url ='http://47.104.12.127:6080/arcgis/rest/services/XLZ/XCJL/FeatureServer/0'
-      var queryObject=new Query()
-      queryObject.where="qyid='"+obj.pid+"'"
-      queryObject.outFields=["*"]
-      queryObject.returnGeometry=true
-      query.executeQueryJSON(url,queryObject).then(function(result){
-        if(result!=null){
-          var feature=result.features[0];
-          var featurelayer = new FeatureLayer({
-            //url: qyFeatureServer,
-            url:url,
-            outFields: ['*'],
+          //var url ='http://47.104.12.127:6080/arcgis/rest/services/XLZ/XCJL/FeatureServer/0'
+          var queryObject=new Query()
+          queryObject.where="qyid='"+obj.pid+"'"
+          queryObject.outFields=["*"]
+          queryObject.returnGeometry=true
+          query.executeQueryJSON(url,queryObject).then(function(result){
+            if(result!=null){
+              var feature=result.features[0];
+              var featurelayer = new FeatureLayer({
+                //url: qyFeatureServer,
+                url:url,
+                outFields: ['*'],
+              })
+
+              feature.attributes["qyid"]=obj.pid
+              feature.attributes["name"]=obj.name
+              feature.attributes["qydz"]=obj.address
+              feature.attributes["clsj"]=obj.founddata
+              feature.attributes["zczb"]=obj.zcmoney
+              feature.attributes["bgdh"]=obj.telphone
+              feature.attributes["qyfzr"]=obj.mainperson
+              feature.attributes["fzrdh"]=obj.mainpersonmobile
+              feature.attributes["qylx"]=obj.typeid
+              feature.attributes["aqfzr"]=obj.safeperson
+              feature.attributes["aqfzrdh"]=obj.safepersonmobile
+              feature.attributes["scjycp"]=obj.production
+              feature.attributes["zgrs"]=0
+              feature.attributes["bz"]=''
+              feature.attributes["tyxydm"]=obj.cardno
+              feature.attributes["sfyzdwry"]=obj.ishavedanger
+              feature.attributes["sscz"]=obj.community
+
+              featurelayer
+                .applyEdits({
+                  updateFeatures: [feature],
+                })
+                .then(function (result) {
+                  if (result.updateFeatureResults.length > 0) {
+                    debugger;
+                  }
+                })
+
+
+            }
           })
-
-          feature.attributes["qyid"]=obj.pid
-          feature.attributes["name"]=obj.name
-          feature.attributes["qydz"]=obj.address
-          feature.attributes["clsj"]=obj.founddata
-          feature.attributes["zczb"]=obj.zcmoney
-          feature.attributes["bgdh"]=obj.telphone
-          feature.attributes["qyfzr"]=obj.mainperson
-          feature.attributes["fzrdh"]=obj.mainpersonmobile
-          feature.attributes["qylx"]=obj.typeid
-          feature.attributes["aqfzr"]=obj.safeperson
-          feature.attributes["aqfzrdh"]=obj.safepersonmobile
-          feature.attributes["scjycp"]=obj.production
-          feature.attributes["zgrs"]=0
-          feature.attributes["bz"]=''
-          feature.attributes["tyxydm"]=obj.cardno
-          feature.attributes["sfyzdwry"]=obj.ishavedanger
-          feature.attributes["sscz"]=obj.community
-
-          featurelayer
-            .applyEdits({
-              updateFeatures: [feature],
-            })
-            .then(function (result) {
-              if (result.updateFeatureResults.length > 0) {
-                debugger;
-              }
-            })
-
-
-        }
-      })
-      // var featurelayer = new FeatureLayer({
-      //   //url: qyFeatureServer,
-      //   url:url,
-      //   outFields: ['*'],
-      // })
-      // var attr = {
-      //   qyid: obj.pid,
-      //   name: obj.name,
-      //   qydz: obj.address,
-      //   clsj: obj.founddata,
-      //   zczb: obj.zcmoney,
-      //   bgdh: obj.telphone,
-      //   qyfzr: obj.mainperson,
-      //   fzrdh: obj.mainpersonmobile,
-      //   qylx: obj.typeid,
-      //   aqfzr: obj.safeperson,
-      //   aqfzrdh: obj.safepersonmobile,
-      //   scjycp: obj.production,
-      //   zgrs: 0,
-      //   bz: '',
-      //   tyxydm: obj.cardno,
-      //   sfyzdwry: obj.ishavedanger,
-      //   sscz: obj.communityid,
-      // }
-      // var point = {
-      //   type: 'point',
-      //   longitude: obj.locationx,
-      //   latitude: obj.locationy,
-      // }
-      // var g = new Graphic({
-      //   geometry: point,
-      //   symbol: {
-      //     type: 'simple-marker',
-      //     color: 'white',
-      //     width: 2,
-      //   },
-      //   attributes: attr,
-      // })
-      // featurelayer
-      //   .applyEdits({
-      //     updateFeatures: [g],
-      //   })
-      //   .then(function (result) {
-      //     if (result.updateFeatureResults.length > 0) {
-      //     }
-      //   })
+          // var featurelayer = new FeatureLayer({
+          //   //url: qyFeatureServer,
+          //   url:url,
+          //   outFields: ['*'],
+          // })
+          // var attr = {
+          //   qyid: obj.pid,
+          //   name: obj.name,
+          //   qydz: obj.address,
+          //   clsj: obj.founddata,
+          //   zczb: obj.zcmoney,
+          //   bgdh: obj.telphone,
+          //   qyfzr: obj.mainperson,
+          //   fzrdh: obj.mainpersonmobile,
+          //   qylx: obj.typeid,
+          //   aqfzr: obj.safeperson,
+          //   aqfzrdh: obj.safepersonmobile,
+          //   scjycp: obj.production,
+          //   zgrs: 0,
+          //   bz: '',
+          //   tyxydm: obj.cardno,
+          //   sfyzdwry: obj.ishavedanger,
+          //   sscz: obj.communityid,
+          // }
+          // var point = {
+          //   type: 'point',
+          //   longitude: obj.locationx,
+          //   latitude: obj.locationy,
+          // }
+          // var g = new Graphic({
+          //   geometry: point,
+          //   symbol: {
+          //     type: 'simple-marker',
+          //     color: 'white',
+          //     width: 2,
+          //   },
+          //   attributes: attr,
+          // })
+          // featurelayer
+          //   .applyEdits({
+          //     updateFeatures: [g],
+          //   })
+          //   .then(function (result) {
+          //     if (result.updateFeatureResults.length > 0) {
+          //     }
+          //   })
     },
   }
 }

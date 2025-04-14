@@ -7,11 +7,6 @@
  * Copyright (c) 2022 by xybx, All Rights Reserved.
 -->
 <template>
-  <!-- <vab-icon
-    :icon="collapse ? 'menu-unfold-line' : 'menu-fold-line'"
-    class="fold-unfold"
-    @click="toggleCollapse"
-  /> -->
   <span class="fold-unfold iconfont" :class="collapse ? 'icon-menu-unfold' : 'icon-menu-fold'" @click="toggleCollapse"></span>
 </template>
 

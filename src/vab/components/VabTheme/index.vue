@@ -8,7 +8,6 @@
 -->
 <template>
   <span v-if="theme.showTheme">
-    <!-- <vab-icon icon="brush-2-line" @click="handleOpenTheme" /> -->
     <i class="iconfont icon-brush--line" @click="handleOpenTheme"></i>
   </span>
 </template>
