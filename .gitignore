@@ -3,10 +3,10 @@ node_modules
 /dist
 /distmap
 /distMP
+
 # local env files
 #.env.local
 #.env.*.local
-
 
 # Log files
 logs
